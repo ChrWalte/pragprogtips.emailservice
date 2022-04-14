@@ -7,6 +7,7 @@
     {
         public const string FileLocationOfRawTipsTextFile = "\\data\\raw\\raw.tips.txt";
         public const string FileLocationOfRawTipsJsonFile = "\\data\\raw\\raw.tips.json";
+        public const string FileLocationOfRawTipIdentifierTextFile = "\\data\\raw\\raw.tip.identifiers.txt";
         public const string FileLocationOfRawEmailTemplateHtmlFile = "\\data\\raw\\raw.email.template.html";
 
         public const string TodoAddMethodOfPullingTipsFromSource =

@@ -401,3 +401,6 @@ FodyWeavers.xsd
 
 # ignore configuration files due to stored secrets
 configuration*.json
+
+# file only used within program, leave out of source control 
+/pragmatic.programmer.tips.core/data/raw/raw.tip.identifiers.txt
