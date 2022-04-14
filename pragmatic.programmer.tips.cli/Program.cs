@@ -52,7 +52,7 @@ try
     await logger.LogDebug(LogMessageConstants.InitializedTipService);
 
     // get random tip from Pragmatic Programmer TipService
-    var theRandomTip = await tipService.GetRandomTipAsync();
+    var theRandomTip = await tipService.GetRandomTipWithRemembranceAsync();
     await logger.Log(LogMessageConstants.GotRandomTipFromTipService);
 
     // initialize EmailTemplateRepository
@@ -69,23 +69,28 @@ try
     var emailService = new EmailService(emailConfiguration);
     await logger.LogDebug(LogMessageConstants.InitializedEmailService);
 
-    // build email body as mime message
+    // get email configuration
     var emailMessageConfiguration = configuration.GetSection(ConfigurationConstants.EmailMessageConfigurationKey)
         .Get<EmailMessageConfiguration>();
     if (emailMessageConfiguration == null)
         throw new ArgumentNullException(nameof(emailMessageConfiguration));
 
+    // format email and subject
     var formattedEmailTemplate = string.Format(
         emailTemplateAsRawHtml,
         theRandomTip.Number,
         theRandomTip.Title,
         theRandomTip.Description);
-    var formattedEmailSubject = string.Format(emailMessageConfiguration.SubjectTemplate, theRandomTip.Number);
+    var formattedEmailSubject = string.Format(  // throw if SubjectTemplate not found in configuration
+        emailMessageConfiguration.SubjectTemplate ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.SubjectTemplate)),
+        theRandomTip.Number);
+
+    // build email body as mime message
     var email = EmailService.BuildMimeMessageUsingHtml(
         formattedEmailSubject,
-        formattedEmailTemplate,
-        emailMessageConfiguration.ToEmails,
-        emailMessageConfiguration.FromEmails);
+        formattedEmailTemplate,         // throw if emails not found in configuration
+        emailMessageConfiguration.ToEmails ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.ToEmails)),
+        emailMessageConfiguration.FromEmails ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.FromEmails)));
     await logger.LogDebug(LogMessageConstants.BuiltMimeMessageUsingEmailService);
 
     // send email

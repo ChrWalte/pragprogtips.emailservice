@@ -74,5 +74,47 @@ namespace pragmatic.programmer.tips.core.data
         {
             throw new NotImplementedException(Constants.TodoAddMethodOfPullingTipsFromSource);
         }
+
+        /// <summary>
+        /// reads tip identifiers from a text file. the data is stored as a : separated string.
+        /// </summary>
+        /// <returns>a sorted list of tip identifiers</returns>
+        public async Task<IEnumerable<string>> ReadTipIdentifiersFromTextFile()
+        {
+            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
+            if (!File.Exists(tipIdentifiersTextFilePath))
+                return new List<string>();
+
+            var joinedIdentifiers = await File.ReadAllTextAsync(tipIdentifiersTextFilePath);
+            var identifiers = joinedIdentifiers.Split(":");
+            return identifiers;
+        }
+
+        /// <summary>
+        /// writes the given tip identifiers to a text file as a : separated string, after sorting the identifiers.
+        /// </summary>
+        /// <param name="identifiers">the tip identifiers to write to file</param>
+        public async Task WriteTipIdentifiersToTextFile(IEnumerable<string> identifiers)
+        {
+            // sort identifiers before writing
+            var sortedIdentifiers = identifiers.ToList();
+            sortedIdentifiers.Sort();
+
+            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
+            var joinedIdentifiers = string.Join(":", sortedIdentifiers);
+            await File.WriteAllTextAsync(tipIdentifiersTextFilePath, joinedIdentifiers);
+        }
+
+        /// <summary>
+        /// deletes the tip identifier text file and all of its contents. acts as a reset for the tip identifiers.
+        /// </summary>
+        public void DeleteTipIdentifierTextFile()
+        {
+            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
+            File.Delete(tipIdentifiersTextFilePath);
+        }
     }
 }

@@ -46,6 +46,7 @@ namespace pragmatic.programmer.tips.core
             _logLevel = logLevel;
         }
 
+        // TODO: Add log file clearer on override that removes unwanted logs from file.
         /// <summary>
         /// overrides the highest logLevel to log
         /// </summary>
