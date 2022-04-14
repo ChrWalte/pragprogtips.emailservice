@@ -55,7 +55,7 @@ namespace pragmatic.programmer.tips.core.services
         {
             await _logger.LogDebug("entered GetAllTipsAsync()");
 
-            var tips = (await _tipsRepository.ReadFromRawTipsTextFile()).ToList();
+            var tips = (await _tipsRepository.ReadFromRawTipsJsonFile()).ToList();
             await _logger.Log($"read {tips.Count} tips using _tipsRepository.ReadFromRawTipsTextFile()");
 
             await _logger.LogDebug("exited GetAllTipsAsync()");
