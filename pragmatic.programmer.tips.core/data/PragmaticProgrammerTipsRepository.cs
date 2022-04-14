@@ -1,4 +1,5 @@
-﻿using pragmatic.programmer.tips.core.data.interfaces;
+﻿using Newtonsoft.Json;
+using pragmatic.programmer.tips.core.data.interfaces;
 using pragmatic.programmer.tips.core.models;
 
 namespace pragmatic.programmer.tips.core.data
@@ -49,15 +50,17 @@ namespace pragmatic.programmer.tips.core.data
             return tips;
         }
 
-        // TODO: Add support for raw.tips.json file.
         /// <summary>
-        /// TODO: Add summary...
+        /// reads a list of tip objects from a JSON file containing the Pragmatic Programmer Tip data.
         /// </summary>
-        /// <returns>TODO: Add what it returns...</returns>
-        /// <exception cref="NotImplementedException">because its not implemented</exception>
-        public IEnumerable<Tip> ReadFromRawTipsJsonFile()
+        /// <returns>list of Pragmatic Programmer Tips</returns>
+        public async Task<IEnumerable<Tip>> ReadFromRawTipsJsonFile()
         {
-            throw new NotImplementedException(Constants.TodoAddMethodOfPullingTipsFromJsonFile);
+            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var tipsTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipsJsonFile);
+            var rawLines = await File.ReadAllTextAsync(tipsTextFilePath);
+            var tips = JsonConvert.DeserializeObject<List<Tip>>(rawLines);
+            return tips ?? new List<Tip>();
         }
 
         // TODO: Add a way of getting/updating raw.tips.txt file.
