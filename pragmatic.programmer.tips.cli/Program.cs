@@ -83,7 +83,8 @@ try
         emailTemplateAsRawHtml,
         theRandomTip.Number,
         theRandomTip.Title,
-        theRandomTip.Description);
+        theRandomTip.Description,
+        theRandomTip.Page);
     var formattedEmailSubject = string.Format(  // throw if SubjectTemplate not found in configuration
         emailMessageConfiguration.SubjectTemplate ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.SubjectTemplate)),
         theRandomTip.Number);
