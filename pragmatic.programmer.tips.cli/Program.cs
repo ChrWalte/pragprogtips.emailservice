@@ -37,6 +37,9 @@ try
             logger.OverrideLogLevel(loggerLogLevelConfiguration);
             await logger.LogWarning(
                 $"updated logger.LogLevel [Debug]->[{loggerLogLevelConfigurationAsString}] using logger.OverrideLogLevel(loggerLogLevelConfiguration)");
+
+            await logger.CleanUnWantedLogsOutOfLogFile();
+            await logger.Log("removed existing unwanted logs using updated log level");
         }
     }
     else
