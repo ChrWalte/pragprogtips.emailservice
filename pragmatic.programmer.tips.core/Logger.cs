@@ -33,6 +33,11 @@ namespace pragmatic.programmer.tips.core
         private readonly string _logFileLocation;
         private LogLevel _logLevel;
 
+        /// <summary>
+        /// Logger that displays messages to the console.
+        /// </summary>
+        /// <param name="logTo">the location to log to</param>
+        /// <param name="logLevel">the minimum log level to display</param>
         public Logger(LogTo logTo = LogTo.Console, LogLevel logLevel = LogLevel.Information)
         {
             _logTo = logTo;
@@ -41,6 +46,12 @@ namespace pragmatic.programmer.tips.core
             _logFileLocation = string.Empty;
         }
 
+        /// <summary>
+        /// Logger that writes messages to the given file.
+        /// </summary>
+        /// <param name="logTo">the location to log to</param>
+        /// <param name="logFileLocation">the file location to log to</param>
+        /// <param name="logLevel">the minimum log level to display</param>
         public Logger(LogTo logTo = LogTo.File, string logFileLocation = "", LogLevel logLevel = LogLevel.Information)
         {
             _logTo = logTo;
@@ -58,7 +69,7 @@ namespace pragmatic.programmer.tips.core
         /// <summary>
         /// reads in existing daily logs and remove logs that have a lower log level then configuration setting.
         /// </summary>
-        /// <returns>nothing, but the log file is rewritten</returns>
+        /// <returns>nothing, but the log file is rewritten with the new logs</returns>
         public async Task CleanUnWantedLogsOutOfLogFile()
         {
             // if log folder doesn't exist, return
@@ -85,7 +96,7 @@ namespace pragmatic.programmer.tips.core
 
                 // get log groups and log level from file.
                 var logRegexGroups = logRegex.Match(log).Groups;
-                var formattedLogLevel = logRegexGroups["loglevel"].Value.Transform(To.LowerCase, To.TitleCase);
+                var formattedLogLevel = logRegexGroups[Constants.LogLevelRegexGroupKey].Value.Transform(To.LowerCase, To.TitleCase);
                 var foundLogLevel = (LogLevel)Enum.Parse(typeof(LogLevel), formattedLogLevel);
 
                 // if the found log level is at least the saved log level, re-add it to the log file.
@@ -94,7 +105,10 @@ namespace pragmatic.programmer.tips.core
             }
 
             // write over existing logs
-            await File.WriteAllLinesAsync(logFile, newLogs);
+            if (newLogs.Any())
+                await File.WriteAllLinesAsync(logFile, newLogs);
+            else
+                File.Delete(logFile);
         }
 
         /// <summary>
@@ -172,7 +186,7 @@ namespace pragmatic.programmer.tips.core
                     break;
 
                 default:
-                    break;
+                    throw new ArgumentOutOfRangeException(nameof(_logTo));
             }
         }
     }
