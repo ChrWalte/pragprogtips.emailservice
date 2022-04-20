@@ -16,7 +16,7 @@ namespace pragmatic.programmer.tips.core.data
         /// <returns>raw html code for the email template</returns>
         public async Task<string> ReadFromRawEmailTemplateFileAsync()
         {
-            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs().FirstOrDefault()) ?? Constants.ThisDirectory;
             var emailTemplatePath = Path.Join(rootPath, Constants.FileLocationOfRawEmailTemplateHtmlFile);
             var rawHtml = await File.ReadAllTextAsync(emailTemplatePath);
             return rawHtml;

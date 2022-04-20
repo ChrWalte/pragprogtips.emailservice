@@ -139,7 +139,7 @@ namespace pragmatic.programmer.tips.core.services
 
             // handle certificate could not be converted into a X509Certificate2
             if (certificate is not X509Certificate2 x509Certificate)
-                throw new Exception("The certificate could not be converted into a X509Certificate2, could not continue");
+                throw new Exception(Constants.CertificateCouldNotBeConvertedIntoX509Certificate2);
 
             // handle custom certificate check
             if (IsValidCertificate(x509Certificate))
@@ -150,7 +150,7 @@ namespace pragmatic.programmer.tips.core.services
                 return false;
 
             // handle chain errors by throwing Exception.
-            var error = "The certificate for the server could not be validated for the following reasons: ";
+            var error = Constants.CertificateValidationCallbackChainErrorStartMessage;
             foreach (var element in chain.ChainElements)
             {
                 error += $"\n{element.Certificate.Subject}";

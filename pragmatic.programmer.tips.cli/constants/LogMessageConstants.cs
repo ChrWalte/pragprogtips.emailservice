@@ -16,6 +16,8 @@
         public const string InitializedEmailService = "initialized EmailService(emailConfiguration)";
         public const string BuiltMimeMessageUsingEmailService = "built mime message using EmailService.BuildMimeMessageUsingHtml(...)";
         public const string SentEmailUsingEmailService = "sent email using emailService.SendAsync(email)";
+        public const string SendingEmailException = "Sending email exception";
+        public const string FinishedSendingEmails = "finished sending emails to TO list";
         public const string CliException = "cli exception";
         public const string ExitedMailMethod = "exited cli.main()\n";
     }
