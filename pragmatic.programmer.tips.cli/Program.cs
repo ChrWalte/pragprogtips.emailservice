@@ -89,17 +89,37 @@ try
         emailMessageConfiguration.SubjectTemplate ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.SubjectTemplate)),
         theRandomTip.Number);
 
-    // build email body as mime message
-    var email = EmailService.BuildMimeMessageUsingHtml(
-        formattedEmailSubject,
-        formattedEmailTemplate,         // throw if emails not found in configuration
-        emailMessageConfiguration.ToEmails ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.ToEmails)),
-        emailMessageConfiguration.FromEmails ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.FromEmails)));
-    await logger.LogDebug(LogMessageConstants.BuiltMimeMessageUsingEmailService);
+    // throw if emails not found in configuration
+    if (emailMessageConfiguration.FromEmails is null)
+        throw new ArgumentNullException(nameof(emailMessageConfiguration.FromEmails));
+    if (emailMessageConfiguration.ToEmails is null)
+        throw new ArgumentNullException(nameof(emailMessageConfiguration.ToEmails));
 
-    // send email
-    await emailService.SendAsync(email);
-    await logger.LogDebug(LogMessageConstants.SentEmailUsingEmailService);
+    // send each TO email an email
+    foreach (var toEmail in emailMessageConfiguration.ToEmails)
+    {
+        // try, catch per TO email
+        try
+        {
+            // build email body as mime message
+            var email = EmailService.BuildMimeMessageUsingHtml(
+                formattedEmailSubject,
+                formattedEmailTemplate,
+                new[] { toEmail },
+                emailMessageConfiguration.FromEmails);
+            await logger.LogDebug(LogMessageConstants.BuiltMimeMessageUsingEmailService);
+
+            // send email
+            await emailService.SendAsync(email);
+            await logger.LogDebug(LogMessageConstants.SentEmailUsingEmailService);
+        }
+        catch (Exception ex)
+        {
+            // log exception but continue through TO list
+            await logger.LogError(LogMessageConstants.CliException, ex);
+        }
+    }
+    await logger.LogDebug(LogMessageConstants.FinishedSendingEmails);
 }
 catch (Exception ex)
 {
