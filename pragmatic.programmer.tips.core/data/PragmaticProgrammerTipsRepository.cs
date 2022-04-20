@@ -19,7 +19,7 @@ namespace pragmatic.programmer.tips.core.data
         public async Task<IEnumerable<Tip>> ReadFromRawTipsTextFile()
         {
             var tips = new List<Tip>();
-            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var rootPath = GetRootDirectory();
             var tipsTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipsTextFile);
             var rawLines = await File.ReadAllLinesAsync(tipsTextFilePath);
 
@@ -56,7 +56,7 @@ namespace pragmatic.programmer.tips.core.data
         /// <returns>list of Pragmatic Programmer Tips</returns>
         public async Task<IEnumerable<Tip>> ReadFromRawTipsJsonFile()
         {
-            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var rootPath = GetRootDirectory();
             var tipsTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipsJsonFile);
             var rawLines = await File.ReadAllTextAsync(tipsTextFilePath);
             var tips = JsonConvert.DeserializeObject<List<Tip>>(rawLines);
@@ -81,13 +81,13 @@ namespace pragmatic.programmer.tips.core.data
         /// <returns>a sorted list of tip identifiers</returns>
         public async Task<IEnumerable<string>> ReadTipIdentifiersFromTextFile()
         {
-            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var rootPath = GetRootDirectory();
             var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
             if (!File.Exists(tipIdentifiersTextFilePath))
                 return new List<string>();
 
             var joinedIdentifiers = await File.ReadAllTextAsync(tipIdentifiersTextFilePath);
-            var identifiers = joinedIdentifiers.Split(":");
+            var identifiers = joinedIdentifiers.Split(Constants.ColonDelimiter);
             return identifiers;
         }
 
@@ -101,9 +101,9 @@ namespace pragmatic.programmer.tips.core.data
             var sortedIdentifiers = identifiers.ToList();
             sortedIdentifiers.Sort();
 
-            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var rootPath = GetRootDirectory();
             var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
-            var joinedIdentifiers = string.Join(":", sortedIdentifiers);
+            var joinedIdentifiers = string.Join(Constants.ColonDelimiter, sortedIdentifiers);
             await File.WriteAllTextAsync(tipIdentifiersTextFilePath, joinedIdentifiers);
         }
 
@@ -112,9 +112,17 @@ namespace pragmatic.programmer.tips.core.data
         /// </summary>
         public void DeleteTipIdentifierTextFile()
         {
-            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) ?? ".\\";
+            var rootPath = GetRootDirectory();
             var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
             File.Delete(tipIdentifiersTextFilePath);
         }
+
+        /// <summary>
+        /// tries to get the program root directory from the command line arguments or returns the "." directory
+        /// </summary>
+        /// <returns>the program root directory or '.' directory</returns>
+        private static string GetRootDirectory()
+            => Path.GetDirectoryName(Environment.GetCommandLineArgs().FirstOrDefault())
+               ?? Constants.ThisDirectory;
     }
 }

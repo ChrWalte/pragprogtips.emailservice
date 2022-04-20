@@ -1,5 +1,11 @@
 # The Pragmatic Programmer Tips Email Service Changelog
 
+## VERSION 0.1.1
+
+- changed email logic to send individual message to each TO email list.
+- added constants where possible.
+- added missing documentation.
+
 ## VERSION 0.1.0
 
 - Initial release.
