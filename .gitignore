@@ -404,3 +404,6 @@ configuration*.json
 
 # file only used within program, leave out of source control 
 /pragmatic.programmer.tips.core/data/raw/raw.tip.identifiers.txt
+
+# .vscode folder inside client project
+/pragmatic.programmer.tips.client/.vscode
