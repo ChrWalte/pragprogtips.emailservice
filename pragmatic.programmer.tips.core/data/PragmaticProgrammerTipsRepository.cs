@@ -92,14 +92,18 @@ namespace pragmatic.programmer.tips.core.data
         }
 
         /// <summary>
-        /// writes the given tip identifiers to a text file as a : separated string.
+        /// writes the given tip identifiers to a text file as a : separated string, after sorting them.
         /// </summary>
         /// <param name="identifiers">the tip identifiers to write to file</param>
         public async Task WriteTipIdentifiersToTextFile(IEnumerable<string> identifiers)
         {
+            // sort identifiers before writing
+            var sortedIdentifiers = identifiers.ToList();
+            sortedIdentifiers.Sort();
+
             var rootPath = GetRootDirectory();
             var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
-            var joinedIdentifiers = string.Join(Constants.ColonDelimiter, identifiers);
+            var joinedIdentifiers = string.Join(Constants.ColonDelimiter, sortedIdentifiers);
             await File.WriteAllTextAsync(tipIdentifiersTextFilePath, joinedIdentifiers);
         }
 
