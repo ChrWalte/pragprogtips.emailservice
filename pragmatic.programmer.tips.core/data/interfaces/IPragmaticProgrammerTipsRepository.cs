@@ -2,6 +2,9 @@
 
 namespace pragmatic.programmer.tips.core.data.interfaces
 {
+    /// <summary>
+    /// interface for the pragmatic programmer tips data repository.
+    /// </summary>
     public interface IPragmaticProgrammerTipsRepository
     {
         Task<IEnumerable<Tip>> ReadFromRawTipsTextFile();

@@ -2,6 +2,9 @@
 
 namespace pragmatic.programmer.tips.core.services.interfaces
 {
+    /// <summary>
+    /// interface for the tip service.
+    /// </summary>
     public interface ITipService
     {
         Task<Tip> GetRandomTipAsync();

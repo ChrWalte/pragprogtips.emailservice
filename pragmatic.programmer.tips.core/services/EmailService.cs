@@ -3,6 +3,7 @@ using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
 using pragmatic.programmer.tips.core.models;
+using pragmatic.programmer.tips.core.services.interfaces;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
@@ -11,7 +12,7 @@ namespace pragmatic.programmer.tips.core.services
     /// <summary>
     /// service for sending emails
     /// </summary>
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly EmailServerConfiguration _config;
 

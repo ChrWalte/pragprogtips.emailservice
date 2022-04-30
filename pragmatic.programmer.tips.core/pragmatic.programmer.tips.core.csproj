@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,22 +8,30 @@
 
   <ItemGroup>
     <None Remove="data\raw\raw.email.template.html" />
+    <None Remove="data\raw\raw.mailing.list.json" />
+    <None Remove="data\raw\raw.tip.identifiers.txt" />
     <None Remove="data\raw\raw.tips.json" />
     <None Remove="data\raw\raw.tips.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="data\raw\raw.email.template.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\raw\raw.mailing.list.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\raw\raw.tip.identifiers.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\raw\raw.tips.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\raw\raw.tips.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Humanizer.Core" Version="2.14.1" />
     <PackageReference Include="MailKit" Version="3.2.0" />
