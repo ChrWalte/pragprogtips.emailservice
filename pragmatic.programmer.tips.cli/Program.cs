@@ -58,6 +58,14 @@ try
     var theRandomTip = await tipService.GetRandomTipWithRemembranceAsync();
     await logger.Log(LogMessageConstants.GotRandomTipFromTipService);
 
+    // initialize MailingListRepository
+    IMailingListRepository mailingListRepository = new MailingListRepository();
+    await logger.LogDebug("initialized MailingListRepository()");
+
+    // initialize MailingListService
+    IMailingListService mailingListService = new MailingListService(mailingListRepository, logger);
+    await logger.LogDebug("initialized MailingListService(...)");
+
     // initialize EmailTemplateRepository
     IEmailTemplateRepository emailTemplateRepository = new EmailTemplateRepository();
     await logger.LogDebug(LogMessageConstants.InitializedEmailTemplateRepository);
@@ -69,7 +77,7 @@ try
     // initialize EmailService
     var emailConfiguration = configuration.GetSection(ConfigurationConstants.EmailServerConfigurationKey)
         .Get<EmailServerConfiguration>();
-    var emailService = new EmailService(emailConfiguration);
+    IEmailService emailService = new EmailService(emailConfiguration);
     await logger.LogDebug(LogMessageConstants.InitializedEmailService);
 
     // get email configuration
@@ -96,7 +104,9 @@ try
         throw new ArgumentNullException(nameof(emailMessageConfiguration.ToEmails));
 
     // send each TO email an email
-    foreach (var toEmail in emailMessageConfiguration.ToEmails)
+    var toEmails = (await mailingListService.GetEntireMailingListAsync()).ToList();
+    toEmails.AddRange(emailMessageConfiguration.ToEmails);
+    foreach (var toEmail in toEmails)
     {
         // try, catch per TO email
         try
