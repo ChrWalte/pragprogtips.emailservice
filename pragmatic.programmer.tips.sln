@@ -34,10 +34,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pragmatic.programmer.tips.c
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A1CC4E72-0D69-4E76-BA09-C6CC093A35AE}"
 	ProjectSection(SolutionItems) = preProject
-		scripts\docker.build.api.image.sh = scripts\docker.build.api.image.sh
-		scripts\docker.build.cli.image.sh = scripts\docker.build.cli.image.sh
-		scripts\docker.build.client.image.sh = scripts\docker.build.client.image.sh
-		scripts\docker.build.images.sh = scripts\docker.build.images.sh
+		scripts\docker.build.and.push.BUILD.only.api.sh = scripts\docker.build.and.push.BUILD.only.api.sh
+		scripts\docker.build.and.push.BUILD.only.cli.sh = scripts\docker.build.and.push.BUILD.only.cli.sh
+		scripts\docker.build.and.push.BUILD.only.client.sh = scripts\docker.build.and.push.BUILD.only.client.sh
+		scripts\docker.build.and.push.BUILD.sh = scripts\docker.build.and.push.BUILD.sh
+		scripts\docker.build.and.push.RELEASE.sh = scripts\docker.build.and.push.RELEASE.sh
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{F0E33141-43C8-479E-861C-1E445EB74DD7}"
