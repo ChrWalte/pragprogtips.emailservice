@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.tests", "pragmatic.programmer.tips.tests\pragmatic.programmer.tips.tests.csproj", "{C051CD27-6A8A-421B-AC2B-5AED89E138C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pragmatic.programmer.tips.api", "pragmatic.programmer.tips.api\pragmatic.programmer.tips.api.csproj", "{8746BA81-ABAE-4D6A-8E4A-BC435B7F4B86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.api", "pragmatic.programmer.tips.api\pragmatic.programmer.tips.api.csproj", "{8746BA81-ABAE-4D6A-8E4A-BC435B7F4B86}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pragmatic.programmer.tips.client", "pragmatic.programmer.tips.client\", "{DC44A3F8-4562-4E6C-B17A-972E090AE111}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -30,6 +30,31 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pragmatic.programmer.tips.c
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55133"
 		SlnRelativePath = "pragmatic.programmer.tips.client\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A1CC4E72-0D69-4E76-BA09-C6CC093A35AE}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\docker.build.api.image.sh = scripts\docker.build.api.image.sh
+		scripts\docker.build.cli.image.sh = scripts\docker.build.cli.image.sh
+		scripts\docker.build.client.image.sh = scripts\docker.build.client.image.sh
+		scripts\docker.build.images.sh = scripts\docker.build.images.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{F0E33141-43C8-479E-861C-1E445EB74DD7}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		LICENSE = LICENSE
+		README.md = README.md
+		TODO.md = TODO.md
+		VERSION = VERSION
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{39407BD2-6127-4AE8-AC68-9E912D4F32D5}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile.api = Dockerfile.api
+		Dockerfile.cli = Dockerfile.cli
+		Dockerfile.client = Dockerfile.client
+		pragmatic.programmer.tips.cli.crontab = pragmatic.programmer.tips.cli.crontab
 	EndProjectSection
 EndProject
 Global
