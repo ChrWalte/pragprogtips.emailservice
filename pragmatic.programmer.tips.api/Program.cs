@@ -8,9 +8,13 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// get path of executable and make path to logs
+var rootDirectory = Path.GetDirectoryName(args.FirstOrDefault());
+var logDirectory = Path.Join(rootDirectory, "logs");
+
 // initialize logger
 // var logger = new Logger(Logger.LogTo.Console, Logger.LogLevel.Debug);
-var logger = new Logger(Logger.LogTo.File, "E:\\pragprogtips.api.logs", Logger.LogLevel.Debug);
+var logger = new Logger(Logger.LogTo.File, logDirectory, Logger.LogLevel.Debug);
 builder.Services.AddSingleton(logger);
 
 // initialize mailingListRepository and mailingListService
@@ -55,8 +59,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

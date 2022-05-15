@@ -9,14 +9,19 @@ namespace pragmatic.programmer.tips.api.Controllers
     /// API Controller for email mailing list
     /// </summary>
     [ApiController]
-    [Route("mailing-list")]
+    [Route("api/mailing-list")]
     [Produces("application/json")]
-    public class EmailListController : ControllerBase
+    public class MailingListController : ControllerBase
     {
         private readonly IMailingListService _mailingListService;
         private readonly Logger _logger;
 
-        public EmailListController(IMailingListService mailingListService, Logger logger)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mailingListService"></param>
+        /// <param name="logger"></param>
+        public MailingListController(IMailingListService mailingListService, Logger logger)
         {
             _mailingListService = mailingListService;
             _logger = logger;

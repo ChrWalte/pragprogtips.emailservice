@@ -7,9 +7,13 @@ using pragmatic.programmer.tips.core.models;
 using pragmatic.programmer.tips.core.services;
 using pragmatic.programmer.tips.core.services.interfaces;
 
+// get path of executable and make path to logs
+var rootDirectory = Path.GetDirectoryName(args.FirstOrDefault());
+var logDirectory = Path.Join(rootDirectory, "logs");
+
 // initialize logger
 // var logger = new Logger(Logger.LogTo.Console, Logger.LogLevel.Debug);
-var logger = new Logger(Logger.LogTo.File, "E:\\pragprogtips.emailservice.logs", Logger.LogLevel.Debug);
+var logger = new Logger(Logger.LogTo.File, logDirectory, Logger.LogLevel.Debug);
 await logger.LogDebug(LogMessageConstants.EnteredMainMethod);
 await logger.LogDebug(LogMessageConstants.InitializedLogger);
 
@@ -84,7 +88,7 @@ try
     var emailMessageConfiguration = configuration.GetSection(ConfigurationConstants.EmailMessageConfigurationKey)
         .Get<EmailMessageConfiguration>();
     if (emailMessageConfiguration == null)
-        throw new ArgumentNullException(nameof(emailMessageConfiguration));
+        throw new NullReferenceException(nameof(emailMessageConfiguration));
 
     // format email and subject
     var formattedEmailTemplate = string.Format(
@@ -94,42 +98,37 @@ try
         theRandomTip.Description,
         theRandomTip.Page);
     var formattedEmailSubject = string.Format(  // throw if SubjectTemplate not found in configuration
-        emailMessageConfiguration.SubjectTemplate ?? throw new ArgumentNullException(nameof(emailMessageConfiguration.SubjectTemplate)),
+        emailMessageConfiguration.SubjectTemplate ?? throw new NullReferenceException(nameof(emailMessageConfiguration.SubjectTemplate)),
         theRandomTip.Number);
 
     // throw if emails not found in configuration
     if (emailMessageConfiguration.FromEmails is null)
-        throw new ArgumentNullException(nameof(emailMessageConfiguration.FromEmails));
+        throw new NullReferenceException(nameof(emailMessageConfiguration.FromEmails));
     if (emailMessageConfiguration.ToEmails is null)
-        throw new ArgumentNullException(nameof(emailMessageConfiguration.ToEmails));
+        throw new NullReferenceException(nameof(emailMessageConfiguration.ToEmails));
 
-    // send each TO email an email
+    // send email
     var toEmails = (await mailingListService.GetEntireMailingListAsync()).ToList();
     toEmails.AddRange(emailMessageConfiguration.ToEmails);
-    foreach (var toEmail in toEmails)
+    try
     {
-        // try, catch per TO email
-        try
-        {
-            // build email body as mime message
-            var email = EmailService.BuildMimeMessageUsingHtml(
-                formattedEmailSubject,
-                formattedEmailTemplate,
-                new[] { toEmail },
-                emailMessageConfiguration.FromEmails);
-            await logger.LogDebug(LogMessageConstants.BuiltMimeMessageUsingEmailService);
+        // build email body as mime message
+        var email = EmailService.BuildMimeMessageUsingHtml(
+            formattedEmailSubject,
+            formattedEmailTemplate,
+            toEmails,
+            emailMessageConfiguration.FromEmails);
+        await logger.LogDebug(LogMessageConstants.BuiltMimeMessageUsingEmailService);
 
-            // send email
-            await emailService.SendAsync(email);
-            await logger.LogDebug(LogMessageConstants.SentEmailUsingEmailService);
-        }
-        catch (Exception ex)
-        {
-            // log exception but continue through TO list
-            await logger.LogError(LogMessageConstants.CliException, ex);
-        }
+        // send email
+        await emailService.SendAsync(email);
+        await logger.LogDebug(LogMessageConstants.SentEmailUsingEmailService);
     }
-    await logger.LogDebug(LogMessageConstants.FinishedSendingEmails);
+    catch (Exception ex)
+    {
+        // log error
+        await logger.LogError(LogMessageConstants.CliException, ex);
+    }
 }
 catch (Exception ex)
 {

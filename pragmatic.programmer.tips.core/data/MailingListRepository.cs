@@ -10,7 +10,12 @@ namespace pragmatic.programmer.tips.core.data
     public class MailingListRepository : IMailingListRepository
     {
         public MailingListRepository()
-        { }
+        {
+            var rootPath = Path.GetDirectoryName(Environment.GetCommandLineArgs().FirstOrDefault()) ?? Constants.ThisDirectory;
+            var mailingListDataPath = Path.Join(rootPath, Constants.FileLocationOfRawMailingListJsonFile);
+            if (!File.Exists(mailingListDataPath))
+                File.Create(mailingListDataPath);
+        }
 
         /// <summary>
         /// gets all emails in the mailing list.
