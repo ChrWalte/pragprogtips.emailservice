@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="header text-center">
+    <div class="row">
+      <div class="col">
+        <h1>
+          The Pragmatic Programmer Tips Email Service
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+        </h1>
+        <p>
+          A daily email containing one of the Pragmatic Programmer Tips from
+          <i
+            ><a
+              href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/"
+              >The Pragmatic Programmer</a
+            ></i
+          >
+          book. <fa-icon [icon]="faBook"></fa-icon>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer text-center">
+    <div class="row">
+      <div class="col">
+        Looking to <a routerLink="subscribe">Subscribe</a>? | Looking to
+        <a routerLink="unsubscribe">Unsubscribe</a>?
+      </div>
+    </div>
+
+    <br />
+    <div class="row">
+      <div class="col">Christopher Walters &#169;2022</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div>
+          Tips from
+          <i
+            ><a
+              href="https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/"
+              >The Pragmatic Programmer</a
+            ></i
+          >.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div>
+          Tip Data Source
+          <a href="https://pragprog.com/tips/">https://pragprog.com</a>.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div>
+          Email Service by
+          <a href="https://github.com/chrwalte">Christopher Walters</a>. Open
+          Sourced on
+          <a href="https://github.com/chrwalte/pragprogtips.emailservice"
+            >GitHub</a
+          >. <fa-icon [icon]="faGithub"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
