@@ -408,3 +408,6 @@ configuration*.json
 
 # .vscode folder inside client project
 /pragmatic.programmer.tips.client/.vscode
+
+# ignore container files
+.docker-compose.files/
