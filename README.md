@@ -92,6 +92,14 @@ To clone the repository, run the following git command:
 git clone https://github.com/chrwalte/pragprogtips.emailservice.git
 ```
 
+Here are the docker images hosted on [DockerHub](https://hub.docker.com/):
+
+- [pragmatic.programmer.tips.cli](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.cli)
+- [pragmatic.programmer.tips.api](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.api)
+- [pragmatic.programmer.tips.client](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.client)
+
+These are the supported architecture: arm64 and aarch64/v8
+
 ### Configuration
 
 The configuration files currently contain secrets that are used to connect to the email service.
