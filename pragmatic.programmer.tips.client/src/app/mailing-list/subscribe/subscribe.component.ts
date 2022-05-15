@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -14,7 +14,7 @@ import { MailingListService } from 'src/app/services/mailing-list.service';
   templateUrl: './subscribe.component.html',
   styleUrls: ['./subscribe.component.scss'],
 })
-export class SubscribeComponent implements OnInit, OnDestroy {
+export class SubscribeComponent implements OnInit {
   subscribeForm: FormGroup = <FormGroup>{};
   resultMessage = '';
 
@@ -27,8 +27,6 @@ export class SubscribeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initForm();
   }
-
-  ngOnDestroy(): void {}
 
   initForm(): void {
     this.subscribeForm = this.formBuilder.group({
