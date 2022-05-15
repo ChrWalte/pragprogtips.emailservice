@@ -1,0 +1,20 @@
+
+# build stage
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+
+# copy everything into the current directory
+COPY . .
+
+# publish the project in release mode
+RUN dotnet publish ./pragmatic.programmer.tips.api/pragmatic.programmer.tips.api.csproj -c release
+
+# final/running stage
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
+
+# create and copy build files into pragmatic.programmer.tips.api folder
+WORKDIR /pragmatic.programmer.tips.api
+COPY --from=build /src/pragmatic.programmer.tips.api/bin/release/net6.0/publish .
+
+# start sele at startup
+ENTRYPOINT ["dotnet", "pragmatic.programmer.tips.api.dll"]

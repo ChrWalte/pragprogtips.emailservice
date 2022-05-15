@@ -402,5 +402,12 @@ FodyWeavers.xsd
 # ignore configuration files due to stored secrets
 configuration*.json
 
-# file only used within program, leave out of source control 
+# files only used within program, leave out of source control 
 /pragmatic.programmer.tips.core/data/raw/raw.tip.identifiers.txt
+/pragmatic.programmer.tips.core/data/raw/raw.mailing.list.json
+
+# .vscode folder inside client project
+/pragmatic.programmer.tips.client/.vscode
+
+# ignore container files
+.docker-compose.files/

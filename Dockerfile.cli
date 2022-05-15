@@ -1,0 +1,29 @@
+
+# build stage
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+
+# copy everything into the current directory
+COPY . .
+
+# publish the project in release mode
+RUN dotnet publish ./pragmatic.programmer.tips.cli/pragmatic.programmer.tips.cli.csproj -c release
+
+# final/running stage
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
+
+# create and copy build files into pragmatic.programmer.tips.api folder
+WORKDIR /pragmatic.programmer.tips.cli
+COPY --from=build /src/pragmatic.programmer.tips.cli/bin/release/net6.0/publish .
+
+# copy the crontab file
+COPY --from=build /src/pragmatic.programmer.tips.cli.crontab .
+
+# install updates and install cron
+RUN apt-get update && apt-get -y install cron
+
+# save crontab as job
+RUN crontab /pragmatic.programmer.tips.cli/pragmatic.programmer.tips.cli.crontab
+
+# run cron on startup
+ENTRYPOINT [ "cron", "-f"]

@@ -1,8 +1,10 @@
-﻿using MailKit.Net.Smtp;
+﻿using MailKit;
+using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
 using pragmatic.programmer.tips.core.models;
+using pragmatic.programmer.tips.core.services.interfaces;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
@@ -11,7 +13,7 @@ namespace pragmatic.programmer.tips.core.services
     /// <summary>
     /// service for sending emails
     /// </summary>
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly EmailServerConfiguration _config;
 
@@ -87,19 +89,27 @@ namespace pragmatic.programmer.tips.core.services
             IEnumerable<EmailAddress> fromEmails,
             TextFormat bodyFormat)
         {
+            // create the MimeMessage object and set the subject
+            var mimeMessage = new MimeMessage();
+            mimeMessage.Subject = subject;
+
             // set up what emails to show in the TO field.
             var to = new InternetAddressList();
             foreach (var sender in toEmails)
-                to.Add(new MailboxAddress(sender.Name, sender.Email));
+                // mimeMessage.To.AddRange(to);
+                mimeMessage.Bcc.Add(new MailboxAddress(sender.Name, sender.Email));
+            // to.Add(new MailboxAddress(sender.Name, sender.Email));
 
             // set up what emails to show in the FROM field.
             var from = new InternetAddressList();
             foreach (var recipient in fromEmails)
-                from.Add(new MailboxAddress(recipient.Name, recipient.Email));
+                mimeMessage.From.Add(new MailboxAddress(recipient.Name, recipient.Email));
+            //from.Add(new MailboxAddress(recipient.Name, recipient.Email));
 
             // make the body of the message and return it.
             var constructedBody = new TextPart(bodyFormat) { Text = body };
-            return new MimeMessage(from, to, subject, constructedBody);
+            mimeMessage.Body = constructedBody;
+            return mimeMessage;
         }
 
         /// <summary>

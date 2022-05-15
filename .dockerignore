@@ -1,0 +1,29 @@
+
+# ignore visual studio files
+.vs/
+*/.bin/
+*/.obj/
+*.user/
+
+# ignore visual studio code files
+.vscode/
+
+# ignore node modules
+node_modules/
+
+# ignore other .ignore files
+.*ignore/
+
+# ignore documentation files
+CHANGELOG.md/
+README.md/
+TODO.md/
+LICENSE/
+VERSION/
+
+# ignore configuration files due to stored secrets
+appsettings*.json
+configuration*.json
+
+# ignore container files
+.docker-compose.files/

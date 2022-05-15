@@ -1,0 +1,68 @@
+services:
+
+  # docker run command:
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/pragmatic.programmer.tips.email.service.logs,target=/pragmatic.programmer.tips.cli/logs chrwalte/pragmatic.programmer.tips.cli:latest
+
+  pragmatic.programmer.tips.email.service:
+    container_name: pragmatic.programmer.tips.email.service
+    hostname: pragmatic.programmer.tips.email.service
+    image: chrwalte/pragmatic.programmer.tips.cli:build
+    environment:
+      # ENVIRONMENT: "prod"
+      ENVIRONMENT: "dev"
+    volumes:
+      - ".docker-compose.files/pragmatic.programmer.tips.email.service.logs/:/pragmatic.programmer.tips.cli/logs/"
+      - ".docker-compose.files/pragmatic.programmer.tips.data/:/pragmatic.programmer.tips.cli/data/raw/"
+      - "./pragmatic.programmer.tips.cli/configuration.json:/pragmatic.programmer.tips.cli/configuration.json"
+      # ENVIRONMENT CONFIGURATION:
+      # - "./pragmatic.programmer.tips.cli/configuration.dev.json:/pragmatic.programmer.tips.cli/configuration.dev.json"
+      # - "./pragmatic.programmer.tips.cli/configuration.prod.json:/pragmatic.programmer.tips.cli/configuration.prod.json"
+    networks:
+      - pragmatic.programmer.tips.email.service.network
+    restart: unless-stopped
+
+  # docker run command:
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.api -p 30011:80 --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/pragmatic.programmer.tips.api.logs,target=/pragmatic.programmer.tips.api/logs --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker-compose.files/pragmatic.programmer.tips.data,target=/pragmatic.programmer.tips.api/data/raw chrwalte/pragmatic.programmer.tips.api:latest
+
+  pragmatic.programmer.tips.web.api:
+    container_name: pragmatic.programmer.tips.web.api
+    hostname: pragmatic.programmer.tips.web.api
+    image: chrwalte/pragmatic.programmer.tips.api:build
+    ports:
+      - 30011:80
+    environment:
+      # ENVIRONMENT: "prod"
+      ENVIRONMENT: "dev"
+    volumes:
+      - ".docker-compose.files/pragmatic.programmer.tips.api.logs/:/pragmatic.programmer.tips.api/logs/"
+      - ".docker-compose.files/pragmatic.programmer.tips.data/:/pragmatic.programmer.tips.api/data/raw/"
+      # ENVIRONMENT CONFIGURATION:
+      # - "./pragmatic.programmer.tips.api/appsettings.dev.json:/pragmatic.programmer.tips.api/appsettings.dev.json"
+      # - "./pragmatic.programmer.tips.api/appsettings.prod.json:/pragmatic.programmer.tips.api/appsettings.prod.json"
+    networks:
+      - pragmatic.programmer.tips.web.network
+    restart: unless-stopped
+
+  # docker run command:
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.client -p 30010:80 chrwalte/pragmatic.programmer.tips.client:latest
+
+  pragmatic.programmer.tips.web.client:
+    container_name: pragmatic.programmer.tips.web.client
+    hostname: pragmatic.programmer.tips.web.client
+    image: chrwalte/pragmatic.programmer.tips.client:build
+    ports:
+      - 30010:80
+    environment:
+      # ENVIRONMENT: "prod"
+      ENVIRONMENT: "dev"
+    networks:
+      - pragmatic.programmer.tips.web.network
+    restart: unless-stopped
+
+networks:
+
+  pragmatic.programmer.tips.email.service.network:
+    name: pragmatic.programmer.tips.email.service.network
+
+  pragmatic.programmer.tips.web.network:
+    name: pragmatic.programmer.tips.web.network
