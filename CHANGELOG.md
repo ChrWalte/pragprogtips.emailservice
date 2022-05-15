@@ -1,5 +1,25 @@
 # The Pragmatic Programmer Tips Email Service Changelog
 
+## VERSION 0.1.3
+
+- created client front end.
+- changed email logic to send one email and BCC everyone on the mailing list.
+- added docker files for each part of application (cli, api, and client).
+- added docker helper scripts to help with deployment.
+- added docker compose file for deployment.
+- added crontab file for email service linux deployment.
+- added mailing list file check to prevent crashing when reading a non-existent file.
+- updated logging directory to use root directory.
+- updated directories to use [/] instead of [\\].
+- updated README.
+- updated TODOs.
+
+## VERSION 0.1.2
+
+- started implementing API and Web Client.
+- API has subscribe and unsubscribe methods.
+- email service now uses mailing list with configuration emails.
+
 ## VERSION 0.1.1
 
 - changed email logic to send individual message to each TO email list.
