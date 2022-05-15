@@ -7,3 +7,6 @@
 - TODO: Add better way of installing.
 - TODO: Add emails for subscribe and unsubscribe.
 - TODO: Remove secrets from configuration files so they can be included in source control.
+- TODO: Improve Web Front End Client:
+  - make more mobile friendly.
+  - move result message to below information.
