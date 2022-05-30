@@ -2,7 +2,7 @@
 # description of script
 
 # exit when any command fails
-set -e
+set -ev
 
 # variables
 # docker hub profile
@@ -15,19 +15,14 @@ VERSION=$(cat ../VERSION)build
 DOCKERFILE="Dockerfile.api"
 
 # BUILD
-echo "[CMD]: docker build --no-cache -t $PROJECT:$VERSION -f ./$DOCKERFILE .."
 docker build --no-cache -t $PROJECT:$VERSION -f ../$DOCKERFILE ..
 
 # TAG
-echo "[CMD]: docker tag $PROJECT:$VERSION $PROFILE/$PROJECT:$VERSION"
 docker tag $PROJECT:$VERSION $PROFILE/$PROJECT:$VERSION
-echo "[CMD]: docker tag $PROJECT:$VERSION $PROFILE/$PROJECT:build"
 docker tag $PROJECT:$VERSION $PROFILE/$PROJECT:build
 
 # PUSH
-echo "[CMD]: docker push $PROFILE/$PROJECT:$VERSION"
 docker push $PROFILE/$PROJECT:$VERSION
 docker push $PROFILE/$PROJECT:build
 
-# finished
-echo "[INFO]: FINISHED BUILD ($PROFILE/$PROJECT:$VERSION)!"
+# docker build, tag, and push BUILD only API script finished
