@@ -27,10 +27,10 @@ namespace pragmatic.programmer.tips.core.services
             await _logger.LogDebug(Constants.EnteredGetEntireMailingList);
 
             var mailingList = (await _mailingListRepository.GetAllEmailsInMailingListAsync()).ToList();
-            await _logger.Log($"got {mailingList?.Count} emails from mailing list using _mailingListRepository.GetAllEmailsInMailingListAsync()");
+            await _logger.Log($"got {mailingList.Count} emails from mailing list using _mailingListRepository.GetAllEmailsInMailingListAsync()");
 
             await _logger.LogDebug(Constants.ExitedGetEntireMailingList);
-            return mailingList ?? new List<EmailAddress>();
+            return mailingList;
         }
 
         /// <summary>
