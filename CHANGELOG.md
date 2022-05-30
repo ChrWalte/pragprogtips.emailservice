@@ -1,5 +1,10 @@
 # The Pragmatic Programmer Tips Email Service Changelog
 
+## VERSION 0.1.4
+
+- updated scripts.
+- checked mailing list logic.
+
 ## VERSION 0.1.3
 
 - created client front end.
