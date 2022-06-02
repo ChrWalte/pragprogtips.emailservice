@@ -12,8 +12,12 @@ RUN dotnet publish ./pragmatic.programmer.tips.api/pragmatic.programmer.tips.api
 # final/running stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 
-# create and copy build files into pragmatic.programmer.tips.api folder
-WORKDIR /pragmatic.programmer.tips.api
+# set up stage
+ENV TZ="America/Phoenix"
+RUN date
+
+# create and copy build files into bin/pragmatic.programmer.tips.api folder
+WORKDIR /bin/pragmatic.programmer.tips.api
 COPY --from=build /src/pragmatic.programmer.tips.api/bin/release/net6.0/publish .
 
 # start sele at startup

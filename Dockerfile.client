@@ -1,6 +1,6 @@
 
 # build stage
-FROM node:alpine AS build
+FROM node:lts AS build
 WORKDIR /source
 
 # copy the required package information to install dependencies
@@ -22,3 +22,6 @@ FROM nginx:alpine AS final
 # copy the built files into the nginx directory
 WORKDIR /usr/share/nginx/html
 COPY --from=build /source/dist/pragmatic-programmer-tips/ ./
+
+# reload nginx on start
+ENTRYPOINT [ "nginx", "-s", "reload" ]
