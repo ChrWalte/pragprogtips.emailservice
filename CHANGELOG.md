@@ -1,5 +1,11 @@
 # The Pragmatic Programmer Tips Email Service Changelog
 
+## VERSION 0.2.0
+
+- major docker changes.
+- updates docker-compose and docker scripts.
+- addressed some issues.
+
 ## VERSION 0.1.4
 
 - updated scripts.
