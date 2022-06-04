@@ -1,1 +1,1 @@
-30 04 * * * /bin/pragmatic.programmer.tips/pragmatic.programmer.tips.cli
+30 04 * * * /bin/pragmatic.programmer.tips/pragmatic.programmer.tips.cli && tail -f /bin/pragmatic.programmer.tips/logs/cron.log
