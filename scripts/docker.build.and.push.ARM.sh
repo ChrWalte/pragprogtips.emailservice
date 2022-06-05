@@ -44,15 +44,11 @@ docker push $PROFILE/$PROJECT.cli:$VERSION-build-forArm
 docker push $PROFILE/$PROJECT.cli:build-forArm
 docker push $PROFILE/$PROJECT.cli:latest-forArm
 # api
-docker push $PROFILE/$PROJECT.api:$VERSION
-docker push $PROFILE/$PROJECT.api:latest
 docker push $PROFILE/$PROJECT.api:$VERSION-forArm
 docker push $PROFILE/$PROJECT.api:$VERSION-build-forArm
 docker push $PROFILE/$PROJECT.api:build-forArm
 docker push $PROFILE/$PROJECT.api:latest-forArm
 # client
-docker push $PROFILE/$PROJECT.client:$VERSION
-docker push $PROFILE/$PROJECT.client:latest
 docker push $PROFILE/$PROJECT.client:$VERSION-forArm
 docker push $PROFILE/$PROJECT.client:$VERSION-build-forArm
 docker push $PROFILE/$PROJECT.client:build-forArm
