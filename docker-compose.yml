@@ -1,7 +1,7 @@
 services:
 
   # docker run command:
-  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/pragmatic.programmer.tips.email.service.logs,target=/pragmatic.programmer.tips.cli/logs chrwalte/pragmatic.programmer.tips.cli:latest
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/email.service.logs,target=/bin/pragmatic.programmer.tips/logs chrwalte/pragmatic.programmer.tips.cli:latest
 
   pragmatic.programmer.tips.email.service:
     container_name: pragmatic.programmer.tips.email.service
@@ -11,18 +11,18 @@ services:
       # ENVIRONMENT: "prod"
       ENVIRONMENT: "dev"
     volumes:
-      - ".docker-compose.files/pragmatic.programmer.tips.email.service.logs/:/pragmatic.programmer.tips.cli/logs/"
-      - ".docker-compose.files/pragmatic.programmer.tips.data/:/pragmatic.programmer.tips.cli/data/raw/"
-      - "./pragmatic.programmer.tips.cli/configuration.json:/pragmatic.programmer.tips.cli/configuration.json"
+      - ".docker-compose.files/email.service.logs/:/bin/pragmatic.programmer.tips/logs/"
+      - ".docker-compose.files/data/:/bin/pragmatic.programmer.tips/data/raw/"
+      - "./pragmatic.programmer.tips.cli/configuration.json:/bin/pragmatic.programmer.tips/configuration.json"
       # ENVIRONMENT CONFIGURATION:
-      # - "./pragmatic.programmer.tips.cli/configuration.dev.json:/pragmatic.programmer.tips.cli/configuration.dev.json"
-      # - "./pragmatic.programmer.tips.cli/configuration.prod.json:/pragmatic.programmer.tips.cli/configuration.prod.json"
+      # - "./pragmatic.programmer.tips.cli/configuration.dev.json:/bin/pragmatic.programmer.tips/configuration.dev.json"
+      # - "./pragmatic.programmer.tips.cli/configuration.prod.json:/bin/pragmatic.programmer.tips/configuration.prod.json"
     networks:
       - pragmatic.programmer.tips.email.service.network
     restart: unless-stopped
 
   # docker run command:
-  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.api -p 30011:80 --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/pragmatic.programmer.tips.api.logs,target=/pragmatic.programmer.tips.api/logs --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker-compose.files/pragmatic.programmer.tips.data,target=/pragmatic.programmer.tips.api/data/raw chrwalte/pragmatic.programmer.tips.api:latest
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.api -p 30011:80 --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/api.logs,target=/bin/pragmatic.programmer.tips/logs --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker-compose.files/data,target=/bin/pragmatic.programmer.tips/data/raw chrwalte/pragmatic.programmer.tips.api:latest
 
   pragmatic.programmer.tips.web.api:
     container_name: pragmatic.programmer.tips.web.api
@@ -31,14 +31,14 @@ services:
     ports:
       - 30011:80
     environment:
-      # ENVIRONMENT: "prod"
-      ENVIRONMENT: "dev"
+      # ASPNETCORE_ENVIRONMENT: "prod"
+      ASPNETCORE_ENVIRONMENT: "dev"
     volumes:
-      - ".docker-compose.files/pragmatic.programmer.tips.api.logs/:/pragmatic.programmer.tips.api/logs/"
-      - ".docker-compose.files/pragmatic.programmer.tips.data/:/pragmatic.programmer.tips.api/data/raw/"
+      - ".docker-compose.files/api.logs/:/bin/pragmatic.programmer.tips/logs/"
+      - ".docker-compose.files/data/:/bin/pragmatic.programmer.tips/data/raw/"
       # ENVIRONMENT CONFIGURATION:
-      # - "./pragmatic.programmer.tips.api/appsettings.dev.json:/pragmatic.programmer.tips.api/appsettings.dev.json"
-      # - "./pragmatic.programmer.tips.api/appsettings.prod.json:/pragmatic.programmer.tips.api/appsettings.prod.json"
+      # - "./pragmatic.programmer.tips.api/appsettings.dev.json:/bin/pragmatic.programmer.tips/appsettings.dev.json"
+      # - "./pragmatic.programmer.tips.api/appsettings.prod.json:/bin/pragmatic.programmer.tips/appsettings.prod.json"
     networks:
       - pragmatic.programmer.tips.web.network
     restart: unless-stopped

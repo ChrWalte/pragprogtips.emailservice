@@ -1,6 +1,6 @@
 
 # build stage
-FROM node:alpine AS build
+FROM node:lts AS build
 WORKDIR /source
 
 # copy the required package information to install dependencies

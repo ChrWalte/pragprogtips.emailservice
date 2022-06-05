@@ -9,7 +9,7 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // get path of executable and make path to logs
-var rootDirectory = Path.GetDirectoryName(args.FirstOrDefault());
+var rootDirectory = Path.GetDirectoryName(Environment.GetCommandLineArgs().FirstOrDefault());
 var logDirectory = Path.Join(rootDirectory, "logs");
 
 // initialize logger
