@@ -1,7 +1,7 @@
 services:
 
   # docker run command:
-  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/email.service.logs,target=/bin/pragmatic.programmer.tips/logs chrwalte/pragmatic.programmer.tips.cli:latest
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/email.service.logs,target=/bin/pragmatic.programmer.tips/logs -e ENVIRONMENT=dev chrwalte/pragmatic.programmer.tips.cli:latest
 
   pragmatic.programmer.tips.email.service:
     container_name: pragmatic.programmer.tips.email.service
@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
 
   # docker run command:
-  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.api -p 30011:80 --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/api.logs,target=/bin/pragmatic.programmer.tips/logs --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker-compose.files/data,target=/bin/pragmatic.programmer.tips/data/raw chrwalte/pragmatic.programmer.tips.api:latest
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.api -p 30011:80 --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/api.logs,target=/bin/pragmatic.programmer.tips/logs --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker-compose.files/data,target=/bin/pragmatic.programmer.tips/data/raw -e ASPNETCORE_ENVIRONMENT=dev chrwalte/pragmatic.programmer.tips.api:latest
 
   pragmatic.programmer.tips.web.api:
     container_name: pragmatic.programmer.tips.web.api
@@ -44,7 +44,7 @@ services:
     restart: unless-stopped
 
   # docker run command:
-  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.client -p 30010:80 chrwalte/pragmatic.programmer.tips.client:latest
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.web.client -p 30010:80 -e ENVIRONMENT=dev chrwalte/pragmatic.programmer.tips.client:latest
 
   pragmatic.programmer.tips.web.client:
     container_name: pragmatic.programmer.tips.web.client
