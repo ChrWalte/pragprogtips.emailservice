@@ -1,5 +1,10 @@
 # The Pragmatic Programmer Tips Email Service Changelog
 
+## VERSION 0.2.1
+
+- more docker changes.
+- minor deployment script changes.
+
 ## VERSION 0.2.0
 
 - major docker changes.
