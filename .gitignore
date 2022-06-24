@@ -411,3 +411,4 @@ configuration*.json
 
 # ignore container files
 .docker-compose.files/
+.docker.files/

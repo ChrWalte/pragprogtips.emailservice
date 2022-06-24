@@ -5,6 +5,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>the service part of the pragprogtips.emailservice</Description>
+    <Copyright>Christopher Walters</Copyright>
+    <PackageProjectUrl>https://github.com/ChrWalte/pragprogtips.emailservice</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ChrWalte/pragprogtips.emailservice</RepositoryUrl>
+    <PackageTags>pragprogtips.emailservice;service</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>something changed, but what?</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

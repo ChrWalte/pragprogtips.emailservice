@@ -4,6 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>the core of the pragprogtips.emailservice</Description>
+    <Copyright>Christopher Walters</Copyright>
+    <PackageProjectUrl>https://github.com/ChrWalte/pragprogtips.emailservice</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ChrWalte/pragprogtips.emailservice</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>pragprogtips.emailservice;core</PackageTags>
+    <PackageReleaseNotes>something changed, but what?</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,7 +42,7 @@
   
   <ItemGroup>
     <PackageReference Include="Humanizer.Core" Version="2.14.1" />
-    <PackageReference Include="MailKit" Version="3.2.0" />
+    <PackageReference Include="MailKit" Version="3.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
