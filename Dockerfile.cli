@@ -12,10 +12,6 @@ RUN dotnet publish ./pragmatic.programmer.tips.cli/pragmatic.programmer.tips.cli
 # final/running stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
 
-# set up stage
-ENV TZ="America/Phoenix"
-RUN date
-
 # create and copy build files into pragmatic.programmer.tips.api folder
 WORKDIR /bin/pragmatic.programmer.tips
 COPY --from=build /src/pragmatic.programmer.tips.cli/bin/release/net6.0/publish .
