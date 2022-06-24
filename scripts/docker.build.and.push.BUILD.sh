@@ -1,8 +1,8 @@
 
 # description of script
 
-# exit when any command fails
-set -ev
+# exit when any command fails and logs stuff
+set -xe
 
 # variables
 # docker hub profile
@@ -41,5 +41,3 @@ docker push $PROFILE/$PROJECT.api:build
 # client
 docker push $PROFILE/$PROJECT.client:$VERSION
 docker push $PROFILE/$PROJECT.client:build
-
-# docker build, tag, and push BUILD script finished
