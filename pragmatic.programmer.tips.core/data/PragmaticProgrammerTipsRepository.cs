@@ -108,13 +108,13 @@ namespace pragmatic.programmer.tips.core.data
         }
 
         /// <summary>
-        /// deletes the tip identifier text file and all of its contents. acts as a reset for the tip identifiers.
+        /// rewrites the tip identifier text file and overwriting all of its contents. acts as a reset for the tip identifiers.
         /// </summary>
-        public void DeleteTipIdentifierTextFile()
+        public async Task DeleteTipIdentifierTextFile()
         {
             var rootPath = GetRootDirectory();
             var tipIdentifiersTextFilePath = Path.Join(rootPath, Constants.FileLocationOfRawTipIdentifierTextFile);
-            File.Delete(tipIdentifiersTextFilePath);
+            await File.WriteAllTextAsync(tipIdentifiersTextFilePath, string.Empty);
         }
 
         /// <summary>

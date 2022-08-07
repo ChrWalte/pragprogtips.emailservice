@@ -15,6 +15,6 @@ namespace pragmatic.programmer.tips.core.data.interfaces
 
         Task WriteTipIdentifiersToTextFile(IEnumerable<string> identifiers);
 
-        void DeleteTipIdentifierTextFile();
+        Task DeleteTipIdentifierTextFile();
     }
 }
