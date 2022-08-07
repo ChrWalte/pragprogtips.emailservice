@@ -54,9 +54,9 @@ namespace pragmatic.programmer.tips.core.services
             await _logger.Log($"got {tipsIdentifiersAlreadyRandomlySelected.Count} tips using _tipsRepository.ReadTipIdentifiersFromTextFile()");
 
             // if all tips have been previously selected, reset data source
-            if (tipsIdentifiersAlreadyRandomlySelected.Count == tips.Count)
+            if (tipsIdentifiersAlreadyRandomlySelected.Count >= tips.Count)
             {
-                _tipsRepository.DeleteTipIdentifierTextFile();
+                await _tipsRepository.DeleteTipIdentifierTextFile();
                 await _logger.LogDebug(Constants.ResetTipIdentifierRemembranceFile);
             }
             else // remove previously selected tips from random tip pool
