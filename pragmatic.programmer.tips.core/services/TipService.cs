@@ -57,6 +57,7 @@ namespace pragmatic.programmer.tips.core.services
             if (tipsIdentifiersAlreadyRandomlySelected.Count >= tips.Count)
             {
                 await _tipsRepository.DeleteTipIdentifierTextFile();
+                tipsIdentifiersAlreadyRandomlySelected.Clear();
                 await _logger.LogDebug(Constants.ResetTipIdentifierRemembranceFile);
             }
             else // remove previously selected tips from random tip pool
