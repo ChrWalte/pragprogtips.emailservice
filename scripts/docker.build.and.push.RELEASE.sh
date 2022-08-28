@@ -13,17 +13,17 @@ PROJECT="pragmatic.programmer.tips"
 VERSION=$(cat ../VERSION)
 
 # BUILD
-# cli
-docker build --no-cache -t $PROJECT.cli:$VERSION -f ../Dockerfile.cli ..
+# service
+docker build --no-cache -t $PROJECT.service:$VERSION -f ../Dockerfile.service ..
 # api
 docker build --no-cache -t $PROJECT.api:$VERSION -f ../Dockerfile.api ..
 # client
 docker build --no-cache -t $PROJECT.client:$VERSION -f ../Dockerfile.client ..
 
 # TAG
-# cli
-docker tag $PROJECT.cli:$VERSION $PROFILE/$PROJECT.cli:$VERSION
-docker tag $PROJECT.cli:$VERSION $PROFILE/$PROJECT.cli:latest
+# service
+docker tag $PROJECT.service:$VERSION $PROFILE/$PROJECT.service:$VERSION
+docker tag $PROJECT.service:$VERSION $PROFILE/$PROJECT.service:latest
 # api
 docker tag $PROJECT.api:$VERSION $PROFILE/$PROJECT.api:$VERSION
 docker tag $PROJECT.api:$VERSION $PROFILE/$PROJECT.api:latest
@@ -32,9 +32,9 @@ docker tag $PROJECT.client:$VERSION $PROFILE/$PROJECT.client:$VERSION
 docker tag $PROJECT.client:$VERSION $PROFILE/$PROJECT.client:latest
 
 # PUSH
-# cli
-docker push $PROFILE/$PROJECT.cli:$VERSION
-docker push $PROFILE/$PROJECT.cli:latest
+# service
+docker push $PROFILE/$PROJECT.service:$VERSION
+docker push $PROFILE/$PROJECT.service:latest
 # api
 docker push $PROFILE/$PROJECT.api:$VERSION
 docker push $PROFILE/$PROJECT.api:latest
