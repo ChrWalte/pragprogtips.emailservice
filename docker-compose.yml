@@ -1,22 +1,22 @@
 services:
 
   # docker run command:
-  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/email.service.logs,target=/bin/pragmatic.programmer.tips/logs -e ENVIRONMENT=dev chrwalte/pragmatic.programmer.tips.cli:latest
+  # docker run -i -d --rm --name=pragmatic.programmer.tips.email.service --mount type=bind,source=C:/Users/null/source/repos/pragmatic.programmer.tips/.docker.files/email.service.logs,target=/bin/pragmatic.programmer.tips/logs -e ENVIRONMENT=dev chrwalte/pragmatic.programmer.tips.service:latest
 
   pragmatic.programmer.tips.email.service:
     container_name: pragmatic.programmer.tips.email.service
     hostname: pragmatic.programmer.tips.email.service
-    image: chrwalte/pragmatic.programmer.tips.cli:build
+    image: chrwalte/pragmatic.programmer.tips.service:build
     environment:
       # ENVIRONMENT: "prod"
       ENVIRONMENT: "dev"
     volumes:
       - ".docker-compose.files/email.service.logs/:/bin/pragmatic.programmer.tips/logs/"
       - ".docker-compose.files/data/:/bin/pragmatic.programmer.tips/data/raw/"
-      - "./pragmatic.programmer.tips.cli/configuration.json:/bin/pragmatic.programmer.tips/configuration.json"
+      - "./pragmatic.programmer.tips.service/configuration.json:/bin/pragmatic.programmer.tips/configuration.json"
       # ENVIRONMENT CONFIGURATION:
-      # - "./pragmatic.programmer.tips.cli/configuration.dev.json:/bin/pragmatic.programmer.tips/configuration.dev.json"
-      # - "./pragmatic.programmer.tips.cli/configuration.prod.json:/bin/pragmatic.programmer.tips/configuration.prod.json"
+      # - "./pragmatic.programmer.tips.service/configuration.dev.json:/bin/pragmatic.programmer.tips/configuration.dev.json"
+      # - "./pragmatic.programmer.tips.service/configuration.prod.json:/bin/pragmatic.programmer.tips/configuration.prod.json"
     networks:
       - pragmatic.programmer.tips.email.service.network
     restart: unless-stopped

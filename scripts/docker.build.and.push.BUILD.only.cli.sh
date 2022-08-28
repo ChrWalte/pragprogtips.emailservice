@@ -8,7 +8,7 @@ set -xe
 # docker hub profile
 PROFILE="chrwalte"
 # project name
-PROJECT="pragmatic.programmer.tips.cli"
+PROJECT="pragmatic.programmer.tips.service"
 # version of the project
 VERSION=$(cat ../VERSION)build
 # the docker file to use

@@ -5,32 +5,11 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.core", "pragmatic.programmer.tips.core\pragmatic.programmer.tips.core.csproj", "{1617E879-AD16-4063-A249-0FB440C7BF08}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.cli", "pragmatic.programmer.tips.cli\pragmatic.programmer.tips.cli.csproj", "{4726660D-EA51-4570-A1AB-9FBF2212D243}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.service", "pragmatic.programmer.tips.service\pragmatic.programmer.tips.service.csproj", "{4726660D-EA51-4570-A1AB-9FBF2212D243}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.tests", "pragmatic.programmer.tips.tests\pragmatic.programmer.tips.tests.csproj", "{C051CD27-6A8A-421B-AC2B-5AED89E138C4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pragmatic.programmer.tips.api", "pragmatic.programmer.tips.api\pragmatic.programmer.tips.api.csproj", "{8746BA81-ABAE-4D6A-8E4A-BC435B7F4B86}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pragmatic.programmer.tips.client", "pragmatic.programmer.tips.client\", "{DC44A3F8-4562-4E6C-B17A-972E090AE111}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_55133"
-		Debug.AspNetCompiler.PhysicalPath = "pragmatic.programmer.tips.client\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55133\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_55133"
-		Release.AspNetCompiler.PhysicalPath = "pragmatic.programmer.tips.client\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55133\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "55133"
-		SlnRelativePath = "pragmatic.programmer.tips.client\"
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A1CC4E72-0D69-4E76-BA09-C6CC093A35AE}"
 	ProjectSection(SolutionItems) = preProject
@@ -55,7 +34,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", 
 		Dockerfile.api = Dockerfile.api
 		Dockerfile.cli = Dockerfile.cli
 		Dockerfile.client = Dockerfile.client
-		pragmatic.programmer.tips.cli.crontab = pragmatic.programmer.tips.cli.crontab
+		pragmatic.programmer.tips.service.crontab = pragmatic.programmer.tips.service.crontab
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pragmatic.programmer.tips.client", "pragmatic.programmer.tips.client\", "{DC44A3F8-4562-4E6C-B17A-972E090AE111}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55133"
+		Debug.AspNetCompiler.PhysicalPath = "pragmatic.programmer.tips.client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55133\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55133"
+		Release.AspNetCompiler.PhysicalPath = "pragmatic.programmer.tips.client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55133\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55133"
+		SlnRelativePath = "pragmatic.programmer.tips.client\"
 	EndProjectSection
 EndProject
 Global
