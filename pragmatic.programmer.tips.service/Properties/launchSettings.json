@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "pragmatic.programmer.tips.cli": {
+    "pragmatic.programmer.tips.service": {
       "commandName": "Project",
       "environmentVariables": {
         "ENVIRONMENT": "dev"

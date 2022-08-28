@@ -19,7 +19,7 @@ A docker-compose.yml deployment file is included and is the recommended way of h
 
 There are three main parts of this application:
 
-- pragmatic.programmer.tips.cli
+- pragmatic.programmer.tips.service
 - pragmatic.programmer.tips.api
 - pragmatic.programmer.tips.client
 
@@ -27,15 +27,15 @@ More details can be found below.
 
 ### The Projects
 
-#### pragmatic.programmer.tips.cli
+#### pragmatic.programmer.tips.service
 
-The pragmatic.programmer.tips.cli project acts as the main email service. it handles all the random generation for the tips and the sending of the emails. This project has a lot of configurations to connect to the email service and set up the certificate. This project was created to be self-contained where all the data and log files are created at the root directory of the compiled binaries. There are plans to have this more configurable.
+The pragmatic.programmer.tips.service project acts as the main email service. it handles all the random generation for the tips and the sending of the emails. This project has a lot of configurations to connect to the email service and set up the certificate. This project was created to be self-contained where all the data and log files are created at the root directory of the compiled binaries. There are plans to have this more configurable.
 
-The pragmatic.programmer.tips.cli project is a .Net 6.0 project.
+The pragmatic.programmer.tips.service project is a .Net 6.0 project.
 
 #### pragmatic.programmer.tips.api
 
-The pragmatic.programmer.tips.api project acts as the back end to the user front end. It handles all the subscribing and unsubscribing from the email service mailing list. This project was also created to be self-contained and access the same data as the pragmatic.programmer.tips.cli project.
+The pragmatic.programmer.tips.api project acts as the back end to the user front end. It handles all the subscribing and unsubscribing from the email service mailing list. This project was also created to be self-contained and access the same data as the pragmatic.programmer.tips.service project.
 
 The pragmatic.programmer.tips.api project is a .Net 6.0 project.
 
@@ -69,7 +69,7 @@ dotnet build
 To run the service, run the following command:
 
 ```shell
-dotnet run --project pragmatic.programmer.tips.cli
+dotnet run --project pragmatic.programmer.tips.service
 ```
 
 The source code includes a Visual Studio solution file that can be used to compile and run the service from Visual Studio.
@@ -94,7 +94,7 @@ git clone https://github.com/chrwalte/pragprogtips.emailservice.git
 
 Here are the docker images hosted on [DockerHub](https://hub.docker.com/):
 
-- [pragmatic.programmer.tips.cli](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.cli)
+- [pragmatic.programmer.tips.service](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.service)
 - [pragmatic.programmer.tips.api](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.api)
 - [pragmatic.programmer.tips.client](https://hub.docker.com/repository/docker/chrwalte/pragmatic.programmer.tips.client)
 

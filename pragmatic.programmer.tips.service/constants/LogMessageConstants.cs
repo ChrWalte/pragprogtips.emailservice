@@ -1,4 +1,4 @@
-﻿namespace pragmatic.programmer.tips.cli.constants
+﻿namespace pragmatic.programmer.tips.service.constants
 {
     /// <summary>
     /// Constants file containing most log messages.

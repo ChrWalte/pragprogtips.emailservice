@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using pragmatic.programmer.tips.cli.constants;
+using pragmatic.programmer.tips.service.constants;
 using pragmatic.programmer.tips.core;
 using pragmatic.programmer.tips.core.data;
 using pragmatic.programmer.tips.core.data.interfaces;
