@@ -6,6 +6,7 @@
 - upgraded backend NuGet packages.
 - upgraded angular front end to angular 15.
 - upgraded front end npm packages.
+- removed periods from tip data.
 
 ## VERSION 0.2.1
 
