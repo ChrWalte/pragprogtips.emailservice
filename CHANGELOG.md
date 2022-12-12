@@ -1,5 +1,12 @@
 # The Pragmatic Programmer Tips Email Service Changelog
 
+## VERSION 0.3.0
+
+- upgraded dotnet back end to .NET 7.
+- upgraded backend NuGet packages.
+- upgraded angular front end to angular 15.
+- upgraded front end npm packages.
+
 ## VERSION 0.2.1
 
 - more docker changes.
