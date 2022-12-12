@@ -9,199 +9,199 @@
     "Number": "Tip #2",
     "Page": "pg. xxi",
     "Title": "Think! About Your Work",
-    "Description": "Turn off the autopilot and take control. Constantly critique and appraise your work."
+    "Description": "Turn off the autopilot and take control. Constantly critique and appraise your work"
   },
   {
     "Number": "Tip #3",
     "Page": "pg. 2",
     "Title": "You Have Agency",
-    "Description": "It's your life. Grab hold of it and make it what you want."
+    "Description": "It's your life. Grab hold of it and make it what you want"
   },
   {
     "Number": "Tip #4",
     "Page": "pg. 4",
     "Title": "Provide Options, Don't Make Lame Excuses",
-    "Description": "Instead of excuses, provide options. Don't say it can't be done; explain what can be done."
+    "Description": "Instead of excuses, provide options. Don't say it can't be done; explain what can be done"
   },
   {
     "Number": "Tip #5",
     "Page": "pg. 7",
     "Title": "Don't Live with Broken Windows",
-    "Description": "Fix bad designs, wrong decisions, and poor code when you see them."
+    "Description": "Fix bad designs, wrong decisions, and poor code when you see them"
   },
   {
     "Number": "Tip #6",
     "Page": "pg. 9",
     "Title": "Be a Catalyst for Change",
-    "Description": "You can't force change on people. Instead, show them how the future might be and help them participate in creating it."
+    "Description": "You can't force change on people. Instead, show them how the future might be and help them participate in creating it"
   },
   {
     "Number": "Tip #7",
     "Page": "pg. 10",
     "Title": "Remember the Big Picture",
-    "Description": "Don't get so engrossed in the details that you forget to check what's happening around you."
+    "Description": "Don't get so engrossed in the details that you forget to check what's happening around you"
   },
   {
     "Number": "Tip #8",
     "Page": "pg. 12",
     "Title": "Make Quality a Requirements Issue",
-    "Description": "Involve your users in determining the project's real quality requirements."
+    "Description": "Involve your users in determining the project's real quality requirements"
   },
   {
     "Number": "Tip #9",
     "Page": "pg. 15",
     "Title": "Invest Regularly in Your Knowledge Portfolio",
-    "Description": "Make learning a habit."
+    "Description": "Make learning a habit"
   },
   {
     "Number": "Tip #10",
     "Page": "pg. 17",
     "Title": "Critically Analyze What You Read and Hear",
-    "Description": "Don't be swayed by vendors, media hype, or dogma. Analyze information in terms of you and your project."
+    "Description": "Don't be swayed by vendors, media hype, or dogma. Analyze information in terms of you and your project"
   },
   {
     "Number": "Tip #11",
     "Page": "pg. 20",
     "Title": "English is Just Another Programming Language",
-    "Description": "Treat English as Just Another Programming Language. Write documents as you would write code: honor the DRY principle, ETC, automation, and so on."
+    "Description": "Treat English as Just Another Programming Language. Write documents as you would write code: honor the DRY principle, ETC, automation, and so on"
   },
   {
     "Number": "Tip #12",
     "Page": "pg. 22",
     "Title": "It's Both What You Say and the Way You Say It",
-    "Description": "There's no point in having great ideas if you don't communicate them effectively."
+    "Description": "There's no point in having great ideas if you don't communicate them effectively"
   },
   {
     "Number": "Tip #13",
     "Page": "pg. 23",
     "Title": "Build Documentation In, Don't Bolt It On",
-    "Description": "Documentation created separately from code is less likely to be correct and up to date."
+    "Description": "Documentation created separately from code is less likely to be correct and up to date"
   },
   {
     "Number": "Tip #14",
     "Page": "pg. 28",
     "Title": "Good Design Is Easier to Change Than Bad Design",
-    "Description": "A thing is well designed if it adapts to the people who use it. For code, that means it must adapt by changing."
+    "Description": "A thing is well designed if it adapts to the people who use it. For code, that means it must adapt by changing"
   },
   {
     "Number": "Tip #15",
     "Page": "pg. 31",
     "Title": "DRY-Don't Repeat Yourself",
-    "Description": "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system."
+    "Description": "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system"
   },
   {
     "Number": "Tip #16",
     "Page": "pg. 38",
     "Title": "Make It Easy to Reuse",
-    "Description": "If it's easy to reuse, people will. Create an environment that supports reuse."
+    "Description": "If it's easy to reuse, people will. Create an environment that supports reuse"
   },
   {
     "Number": "Tip #17",
     "Page": "pg. 40",
     "Title": "Eliminate Effects Between Unrelated Things",
-    "Description": "Design components that are self-contained, independent, and have a single, well-defined purpose."
+    "Description": "Design components that are self-contained, independent, and have a single, well-defined purpose"
   },
   {
     "Number": "Tip #18",
     "Page": "pg. 48",
     "Title": "There Are No Final Decisions",
-    "Description": "No decision is cast in stone. Instead, consider each as being written in the sand at the beach, and plan for change."
+    "Description": "No decision is cast in stone. Instead, consider each as being written in the sand at the beach, and plan for change"
   },
   {
     "Number": "Tip #19",
     "Page": "pg. 49",
     "Title": "Forgo Following Fads",
-    "Description": "Neal Ford says, \"Yesterday's Best Practice Becomes Tomorrow's Antipattern.\" Choose architectures based on fundamentals, not fashion."
+    "Description": "Neal Ford says, \"Yesterday's Best Practice Becomes Tomorrow's Antipattern.\" Choose architectures based on fundamentals, not fashion"
   },
   {
     "Number": "Tip #20",
     "Page": "pg. 51",
     "Title": "Use Tracer Bullets to Find the Target",
-    "Description": "Tracer bullets let you home in on your target by trying things and seeing how close they land."
+    "Description": "Tracer bullets let you home in on your target by trying things and seeing how close they land"
   },
   {
     "Number": "Tip #21",
     "Page": "pg. 57",
     "Title": "Prototype to Learn",
-    "Description": "Prototyping is a learning experience. Its value lies not in the code you produce, but in the lessons you learn."
+    "Description": "Prototyping is a learning experience. Its value lies not in the code you produce, but in the lessons you learn"
   },
   {
     "Number": "Tip #22",
     "Page": "pg. 60",
     "Title": "Program Close to the Problem Domain",
-    "Description": "Design and code in the language of the problem domain."
+    "Description": "Design and code in the language of the problem domain"
   },
   {
     "Number": "Tip #23",
     "Page": "pg. 66",
     "Title": "Estimate to Avoid Surprises",
-    "Description": "Estimate before you start. You'll spot potential problems up front."
+    "Description": "Estimate before you start. You'll spot potential problems up front"
   },
   {
     "Number": "Tip #24",
     "Page": "pg. 70",
     "Title": "Iterate the Schedule with the Code",
-    "Description": "Use experience you gain as you implement to refine the project time scales."
+    "Description": "Use experience you gain as you implement to refine the project time scales"
   },
   {
     "Number": "Tip #25",
     "Page": "pg. 75",
     "Title": "Keep Knowledge in Plain Text",
-    "Description": "Plain text won't become obsolete. It helps leverage your work and simplifies debugging and testing."
+    "Description": "Plain text won't become obsolete. It helps leverage your work and simplifies debugging and testing"
   },
   {
     "Number": "Tip #26",
     "Page": "pg. 79",
     "Title": "Use the Power of Command Shells",
-    "Description": "Use the shell when graphical user interfaces don't cut it."
+    "Description": "Use the shell when graphical user interfaces don't cut it"
   },
   {
     "Number": "Tip #27",
     "Page": "pg. 81",
     "Title": "Achieve Editor Fluency",
-    "Description": "An editor is your most important tool. Know how to make it do what you need, quickly and accurately."
+    "Description": "An editor is your most important tool. Know how to make it do what you need, quickly and accurately"
   },
   {
     "Number": "Tip #28",
     "Page": "pg. 85",
     "Title": "Always Use Version Control",
-    "Description": "Version control is a time machine for your work; you can go back."
+    "Description": "Version control is a time machine for your work; you can go back"
   },
   {
     "Number": "Tip #29",
     "Page": "pg. 89",
     "Title": "Fix the Problem, Not the Blame",
-    "Description": "It doesn't really matter whether the bug is your fault or someone else's-it is still your problem, and it still needs to be fixed."
+    "Description": "It doesn't really matter whether the bug is your fault or someone else's-it is still your problem, and it still needs to be fixed"
   },
   {
     "Number": "Tip #30",
     "Page": "pg. 89",
     "Title": "Don't Panic",
-    "Description": "This is true for galactic hitchhikers and for developers."
+    "Description": "This is true for galactic hitchhikers and for developers"
   },
   {
     "Number": "Tip #31",
     "Page": "pg. 91",
     "Title": "Failing Test Before Fixing Code",
-    "Description": "Create a focussed test that reveals the bug before you try fixing it."
+    "Description": "Create a focussed test that reveals the bug before you try fixing it"
   },
   {
     "Number": "Tip #32",
     "Page": "pg. 92",
     "Title": "Read the Damn Error Message",
-    "Description": "Most exceptions tell both what failed and where it failed. If you're lucky you might even get parameter values."
+    "Description": "Most exceptions tell both what failed and where it failed. If you're lucky you might even get parameter values"
   },
   {
     "Number": "Tip #33",
     "Page": "pg. 95",
     "Title": "\"select\" Isn't Broken",
-    "Description": "It is rare to find a bug in the OS or the compiler, or even a third-party product or library. The bug is most likely in the application."
+    "Description": "It is rare to find a bug in the OS or the compiler, or even a third-party product or library. The bug is most likely in the application"
   },
   {
     "Number": "Tip #34",
     "Page": "pg. 96",
     "Title": "Don't Assume It-Prove It",
-    "Description": "Prove your assumptions in the actual environment-with real data and boundary conditions."
+    "Description": "Prove your assumptions in the actual environment-with real data and boundary conditions"
   },
   {
     "Number": "Tip #35",
@@ -213,91 +213,91 @@
     "Number": "Tip #36",
     "Page": "pg. 102",
     "Title": "You Can't Write Perfect Software",
-    "Description": "Software can't be perfect. Protect your code and users from the inevitable errors."
+    "Description": "Software can't be perfect. Protect your code and users from the inevitable errors"
   },
   {
     "Number": "Tip #37",
     "Page": "pg. 107",
     "Title": "Design with Contracts",
-    "Description": "Use contracts to document and verify that code does no more and no less than it claims to do."
+    "Description": "Use contracts to document and verify that code does no more and no less than it claims to do"
   },
   {
     "Number": "Tip #38",
     "Page": "pg. 113",
     "Title": "Crash Early",
-    "Description": "A dead program normally does a lot less damage than a crippled one."
+    "Description": "A dead program normally does a lot less damage than a crippled one"
   },
   {
     "Number": "Tip #39",
     "Page": "pg. 115",
     "Title": "Use Assertions to Prevent the Impossible",
-    "Description": "If it can't happen, use assertions to ensure that it won't. Assertions validate your assumptions. Use them to protect your code from an uncertain world."
+    "Description": "If it can't happen, use assertions to ensure that it won't. Assertions validate your assumptions. Use them to protect your code from an uncertain world"
   },
   {
     "Number": "Tip #40",
     "Page": "pg. 118",
     "Title": "Finish What You Start",
-    "Description": "Where possible, the function or object that allocates a resource should be responsible for deallocating it."
+    "Description": "Where possible, the function or object that allocates a resource should be responsible for deallocating it"
   },
   {
     "Number": "Tip #41",
     "Page": "pg. 121",
     "Title": "Act Locally",
-    "Description": "Keep the scope of mutable variables and open resources short and easily visible."
+    "Description": "Keep the scope of mutable variables and open resources short and easily visible"
   },
   {
     "Number": "Tip #42",
     "Page": "pg. 126",
     "Title": "Take Small Steps-Always",
-    "Description": "Small steps always; check the feedback; and adjust before proceeding."
+    "Description": "Small steps always; check the feedback; and adjust before proceeding"
   },
   {
     "Number": "Tip #43",
     "Page": "pg. 127",
     "Title": "Avoid Fortune-Telling",
-    "Description": "Only look ahead as far as you can see."
+    "Description": "Only look ahead as far as you can see"
   },
   {
     "Number": "Tip #44",
     "Page": "pg. 131",
     "Title": "Decoupled Code Is Easier to Change",
-    "Description": "Coupling ties things together, so that it's harder to change just one thing."
+    "Description": "Coupling ties things together, so that it's harder to change just one thing"
   },
   {
     "Number": "Tip #45",
     "Page": "pg. 132",
     "Title": "Tell, Don't Ask",
-    "Description": "Don't get values from an object, transform them, and then stick them back. Make the object do the work."
+    "Description": "Don't get values from an object, transform them, and then stick them back. Make the object do the work"
   },
   {
     "Number": "Tip #46",
     "Page": "pg. 134",
     "Title": "Don't Chain Method Calls",
-    "Description": "Try not to have more than one dot when you access something."
+    "Description": "Try not to have more than one dot when you access something"
   },
   {
     "Number": "Tip #47",
     "Page": "pg. 136",
     "Title": "Avoid Global Data",
-    "Description": "It's like adding an extra parameter to every method."
+    "Description": "It's like adding an extra parameter to every method"
   },
   {
     "Number": "Tip #48",
     "Page": "pg. 136",
     "Title": "If It's Important Enough To Be Global, Wrap It in an API",
-    "Description": ".but only if you really, really want it to be global."
+    "Description": ".but only if you really, really want it to be global"
   },
   {
     "Number": "Tip #49",
     "Page": "pg. 149",
     "Title": "Programming Is About Code, But Programs Are About Data",
-    "Description": "All programs transform data, converting an input into an output. Start designing using transformations."
+    "Description": "All programs transform data, converting an input into an output. Start designing using transformations"
   },
   {
     "Number": "Tip #50",
     "Page": "pg. 153",
     "Title": "Don't Hoard State; Pass It Around",
-    "Description": "Don't hang on to data within a function or module. Take one down and pass it around."
+    "Description": "Don't hang on to data within a function or module. Take one down and pass it around"
   },
   {
     "Number": "Tip #51",
@@ -309,175 +309,175 @@
     "Number": "Tip #52",
     "Page": "pg. 162",
     "Title": "Prefer Interfaces to Express Polymorphism",
-    "Description": "Interfaces make polymorphism explicit without the coupling introduced by inheritance."
+    "Description": "Interfaces make polymorphism explicit without the coupling introduced by inheritance"
   },
   {
     "Number": "Tip #53",
     "Page": "pg. 163",
     "Title": "Delegate to Services: Has-A Trumps Is-A",
-    "Description": "Don't inherit from services: contain them."
+    "Description": "Don't inherit from services: contain them"
   },
   {
     "Number": "Tip #54",
     "Page": "pg. 165",
     "Title": "Use Mixins to Share Functionality",
-    "Description": "Mixins add functionality to classes without the inheritance tax. Combine with interfaces for painless polymorphism."
+    "Description": "Mixins add functionality to classes without the inheritance tax. Combine with interfaces for painless polymorphism"
   },
   {
     "Number": "Tip #55",
     "Page": "pg. 166",
     "Title": "Parameterize Your App Using External Configuration",
-    "Description": "When code relies on values that may change after the application has gone live, keep those values external to the app. When you application will run in different environments, and potentially for different customers, keep the environment and customer specific values outside the app."
+    "Description": "When code relies on values that may change after the application has gone live, keep those values external to the app. When you application will run in different environments, and potentially for different customers, keep the environment and customer specific values outside the app"
   },
   {
     "Number": "Tip #56",
     "Page": "pg. 171",
     "Title": "Analyze Workflow to Improve Concurrency",
-    "Description": "Exploit concurrency in your user's workflow."
+    "Description": "Exploit concurrency in your user's workflow"
   },
   {
     "Number": "Tip #57",
     "Page": "pg. 174",
     "Title": "Shared State Is Incorrect State",
-    "Description": "Shared state opens a large can of worms that can often only be fixed by rebooting."
+    "Description": "Shared state opens a large can of worms that can often only be fixed by rebooting"
   },
   {
     "Number": "Tip #58",
     "Page": "pg. 180",
     "Title": "Random Failures Are Often Concurrency Issues",
-    "Description": "Variations in timing and context can expose concurrency bugs, but in inconsistent and irreproducible ways."
+    "Description": "Variations in timing and context can expose concurrency bugs, but in inconsistent and irreproducible ways"
   },
   {
     "Number": "Tip #59",
     "Page": "pg. 182",
     "Title": "Use Actors For Concurrency Without Shared State",
-    "Description": "Use Actors to manage concurrent state without explicit synchronization."
+    "Description": "Use Actors to manage concurrent state without explicit synchronization"
   },
   {
     "Number": "Tip #60",
     "Page": "pg. 189",
     "Title": "Use Blackboards to Coordinate Workflow",
-    "Description": "Use blackboards to coordinate disparate facts and agents, while maintaining independence and isolation among participants."
+    "Description": "Use blackboards to coordinate disparate facts and agents, while maintaining independence and isolation among participants"
   },
   {
     "Number": "Tip #61",
     "Page": "pg. 194",
     "Title": "Listen to Your Inner Lizard",
-    "Description": "When it feels like your code is pushing back, it's really your subconscious trying to tell you something's wrong."
+    "Description": "When it feels like your code is pushing back, it's really your subconscious trying to tell you something's wrong"
   },
   {
     "Number": "Tip #62",
     "Page": "pg. 200",
     "Title": "Don't Program by Coincidence",
-    "Description": "Rely only on reliable things. Beware of accidental complexity, and don't confuse a happy coincidence with a purposeful plan."
+    "Description": "Rely only on reliable things. Beware of accidental complexity, and don't confuse a happy coincidence with a purposeful plan"
   },
   {
     "Number": "Tip #63",
     "Page": "pg. 207",
     "Title": "Estimate the Order of Your Algorithms",
-    "Description": "Get a feel for how long things are likely to take before you write code."
+    "Description": "Get a feel for how long things are likely to take before you write code"
   },
   {
     "Number": "Tip #64",
     "Page": "pg. 208",
     "Title": "Test Your Estimates",
-    "Description": "Mathematical analysis of algorithms doesn't tell you everything. Try timing your code in its target environment."
+    "Description": "Mathematical analysis of algorithms doesn't tell you everything. Try timing your code in its target environment"
   },
   {
     "Number": "Tip #65",
     "Page": "pg. 212",
     "Title": "Refactor Early, Refactor Often",
-    "Description": "Just as you might weed and rearrange a garden, rewrite, rework, and re-architect code when it needs it. Fix the root of the problem."
+    "Description": "Just as you might weed and rearrange a garden, rewrite, rework, and re-architect code when it needs it. Fix the root of the problem"
   },
   {
     "Number": "Tip #66",
     "Page": "pg. 214",
     "Title": "Testing Is Not About Finding Bugs",
-    "Description": "A test is a perspective into your code, and gives you feedback about its design, api, and coupling."
+    "Description": "A test is a perspective into your code, and gives you feedback about its design, api, and coupling"
   },
   {
     "Number": "Tip #67",
     "Page": "pg. 216",
     "Title": "A Test Is the First User of Your Code",
-    "Description": "Use its feedback to guide what you do."
+    "Description": "Use its feedback to guide what you do"
   },
   {
     "Number": "Tip #68",
     "Page": "pg. 218",
     "Title": "Build End-To-End, Not Top-Down or Bottom Up",
-    "Description": "Build small pieces of end-to-end functionality, learning about the problem as you go."
+    "Description": "Build small pieces of end-to-end functionality, learning about the problem as you go"
   },
   {
     "Number": "Tip #69",
     "Page": "pg. 221",
     "Title": "Design to Test",
-    "Description": "Start thinking about testing before you write a line of code."
+    "Description": "Start thinking about testing before you write a line of code"
   },
   {
     "Number": "Tip #70",
     "Page": "pg. 223",
     "Title": "Test Your Software, or Your Users Will",
-    "Description": "Test ruthlessly. Don't make your users find bugs for you."
+    "Description": "Test ruthlessly. Don't make your users find bugs for you"
   },
   {
     "Number": "Tip #71",
     "Page": "pg. 224",
     "Title": "Use Property-Based Tests to Validate Your Assumptions",
-    "Description": "Property-based tests will try things you never thought to try, and exercise your code in ways is wasn't meant to be used."
+    "Description": "Property-based tests will try things you never thought to try, and exercise your code in ways is wasn't meant to be used"
   },
   {
     "Number": "Tip #72",
     "Page": "pg. 234",
     "Title": "Keep It Simple and Minimize Attack Surfaces",
-    "Description": "Complex code creates a breeding ground for bugs and opportunities for attackers to exploit."
+    "Description": "Complex code creates a breeding ground for bugs and opportunities for attackers to exploit"
   },
   {
     "Number": "Tip #73",
     "Page": "pg. 235",
     "Title": "Apply Security Patches Quickly",
-    "Description": "Attackers deploy exploits as quick as they can, you have to be quicker."
+    "Description": "Attackers deploy exploits as quick as they can, you have to be quicker"
   },
   {
     "Number": "Tip #74",
     "Page": "pg. 242",
     "Title": "Name Well; Rename When Needed",
-    "Description": "Name to express your intent to readers, and rename as soon as that intent shifts."
+    "Description": "Name to express your intent to readers, and rename as soon as that intent shifts"
   },
   {
     "Number": "Tip #75",
     "Page": "pg. 244",
     "Title": "No One Knows Exactly What They Want",
-    "Description": "They might know a general direction, but they won't know the twists and turns."
+    "Description": "They might know a general direction, but they won't know the twists and turns"
   },
   {
     "Number": "Tip #76",
     "Page": "pg. 245",
     "Title": "Programmers Help People Understand What They Want",
-    "Description": "Software development is an act of co-creation between users and programmers."
+    "Description": "Software development is an act of co-creation between users and programmers"
   },
   {
     "Number": "Tip #77",
     "Page": "pg. 246",
     "Title": "Requirements Are Learned in a Feedback Loop",
-    "Description": "Understanding requirements requires exploration and feedback, so the consequences of decisions can be used to refine the initial ideas."
+    "Description": "Understanding requirements requires exploration and feedback, so the consequences of decisions can be used to refine the initial ideas"
   },
   {
     "Number": "Tip #78",
     "Page": "pg. 247",
     "Title": "Work with a User to Think Like a User",
-    "Description": "It's the best way to gain insight into how the system will really be used."
+    "Description": "It's the best way to gain insight into how the system will really be used"
   },
   {
     "Number": "Tip #79",
     "Page": "pg. 248",
     "Title": "Policy Is Metadata",
-    "Description": "Don't hardcode policy into a system; instead express it as metadata used by the system."
+    "Description": "Don't hardcode policy into a system; instead express it as metadata used by the system"
   },
   {
     "Number": "Tip #80",
     "Page": "pg. 251",
     "Title": "Use a Project Glossary",
-    "Description": "Create and maintain a single source of all the specific terms and vocabulary for a project."
+    "Description": "Create and maintain a single source of all the specific terms and vocabulary for a project"
   },
   {
     "Number": "Tip #81",
@@ -489,114 +489,114 @@
     "Number": "Tip #82",
     "Page": "pg. 259",
     "Title": "Don't Go into the Code Alone",
-    "Description": "Programming can be difficult and demanding. Take a friend with you."
+    "Description": "Programming can be difficult and demanding. Take a friend with you"
   },
   {
     "Number": "Tip #83",
     "Page": "pg. 259",
     "Title": "Agile Is Not a Noun; Agile Is How You Do Things",
-    "Description": "Agile is an adjective: it's how you do something."
+    "Description": "Agile is an adjective: it's how you do something"
   },
   {
     "Number": "Tip #84",
     "Page": "pg. 264",
     "Title": "Maintain Small Stable Teams",
-    "Description": "Teams should be small and stable, where everyone trusts each other and depends on each other."
+    "Description": "Teams should be small and stable, where everyone trusts each other and depends on each other"
   },
   {
     "Number": "Tip #85",
     "Page": "pg. 266",
     "Title": "Schedule It to Make It Happen",
-    "Description": "If you don't schedule it, it's not going to happen. Schedule reflection, experimentation, learning and skills improvement."
+    "Description": "If you don't schedule it, it's not going to happen. Schedule reflection, experimentation, learning and skills improvement"
   },
   {
     "Number": "Tip #86",
     "Page": "pg. 268",
     "Title": "Organize Fully Functional Teams",
-    "Description": "Organize Around Functionality, Not Job Functions. Don't separate UI/UX designers from coders, frontend from backend, testers from data modelers, design from deployment. Build teams so you can build code end-to-end, incrementally and iteratively."
+    "Description": "Organize Around Functionality, Not Job Functions. Don't separate UI/UX designers from coders, frontend from backend, testers from data modelers, design from deployment. Build teams so you can build code end-to-end, incrementally and iteratively"
   },
   {
     "Number": "Tip #87",
     "Page": "pg. 271",
     "Title": "Do What Works, Not What's Fashionable",
-    "Description": "Don't adopt a development method or technique just because other companies are doing it. Adopt what works for your team, in your context."
+    "Description": "Don't adopt a development method or technique just because other companies are doing it. Adopt what works for your team, in your context"
   },
   {
     "Number": "Tip #88",
     "Page": "pg. 273",
     "Title": "Deliver When Users Need It",
-    "Description": "Don't wait weeks or months to deliver just because your process demands it."
+    "Description": "Don't wait weeks or months to deliver just because your process demands it"
   },
   {
     "Number": "Tip #89",
     "Page": "pg. 274",
     "Title": "Use Version Control to Drive Builds, Tests, and Releases",
-    "Description": "Use commits or pushes to trigger builds, tests, releases. Use a version control tag to deploy to production."
+    "Description": "Use commits or pushes to trigger builds, tests, releases. Use a version control tag to deploy to production"
   },
   {
     "Number": "Tip #90",
     "Page": "pg. 275",
     "Title": "Test Early, Test Often, Test Automatically",
-    "Description": "Tests that run with every build are much more effective than test plans that sit on a shelf."
+    "Description": "Tests that run with every build are much more effective than test plans that sit on a shelf"
   },
   {
     "Number": "Tip #91",
     "Page": "pg. 275",
     "Title": "Coding Ain't Done 'Til All the Tests Run",
-    "Description": "'Nuff said."
+    "Description": "'Nuff said"
   },
   {
     "Number": "Tip #92",
     "Page": "pg. 277",
     "Title": "Use Saboteurs to Test Your Testing",
-    "Description": "Introduce bugs on purpose in a separate copy of the source to verify that testing will catch them."
+    "Description": "Introduce bugs on purpose in a separate copy of the source to verify that testing will catch them"
   },
   {
     "Number": "Tip #93",
     "Page": "pg. 278",
     "Title": "Test State Coverage, Not Code Coverage",
-    "Description": "Identify and test significant program states. Testing just lines of code isn't enough."
+    "Description": "Identify and test significant program states. Testing just lines of code isn't enough"
   },
   {
     "Number": "Tip #94",
     "Page": "pg. 278",
     "Title": "Find Bugs Once",
-    "Description": "Once a human tester finds a bug, it should be the last time a human tester finds that bug. Automatic tests should check for it from then on."
+    "Description": "Once a human tester finds a bug, it should be the last time a human tester finds that bug. Automatic tests should check for it from then on"
   },
   {
     "Number": "Tip #95",
     "Page": "pg. 279",
     "Title": "Don't Use Manual Procedures",
-    "Description": "A computer will execute the same instructions, in the same order, time after time."
+    "Description": "A computer will execute the same instructions, in the same order, time after time"
   },
   {
     "Number": "Tip #96",
     "Page": "pg. 281",
     "Title": "Delight Users, Don't Just Deliver Code",
-    "Description": "Develop solutions that produce business value for your users and delight them every day."
+    "Description": "Develop solutions that produce business value for your users and delight them every day"
   },
   {
     "Number": "Tip #97",
     "Page": "pg. 282",
     "Title": "Sign Your Work",
-    "Description": "Artisans of an earlier age were proud to sign their work. You should be, too."
+    "Description": "Artisans of an earlier age were proud to sign their work. You should be, too"
   },
   {
     "Number": "Tip #98",
     "Page": "pg. 286",
     "Title": "First, Do No Harm",
-    "Description": "Failure is inevitable. Make sure no one will suffer because of it."
+    "Description": "Failure is inevitable. Make sure no one will suffer because of it"
   },
   {
     "Number": "Tip #99",
     "Page": "pg. 287",
     "Title": "Don't Enable Scumbags",
-    "Description": "Because you risk becoming one, too."
+    "Description": "Because you risk becoming one, too"
   },
   {
     "Number": "Tip #100",
     "Page": "pg. 287",
     "Title": "It's Your Life. Share it. Celebrate it. Build it. AND HAVE FUN!",
-    "Description": "Enjoy this amazing life we have, and do great things."
+    "Description": "Enjoy this amazing life we have, and do great things"
   }
 ]
