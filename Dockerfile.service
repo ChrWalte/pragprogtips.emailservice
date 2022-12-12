@@ -1,6 +1,6 @@
 
 # build stage
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 # copy everything into the current directory
@@ -10,7 +10,7 @@ COPY . .
 RUN dotnet publish ./pragmatic.programmer.tips.service/pragmatic.programmer.tips.service.csproj -c release
 
 # final/running stage
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 
 # create and copy build files into pragmatic.programmer.tips.api folder
 WORKDIR /bin/pragmatic.programmer.tips
