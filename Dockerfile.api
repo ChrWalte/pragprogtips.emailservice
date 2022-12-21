@@ -14,7 +14,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 
 # create and copy build files into bin/pragmatic.programmer.tips.api folder
 WORKDIR /bin/pragmatic.programmer.tips.api
-COPY --from=build /src/pragmatic.programmer.tips.api/bin/release/net7.0/linux-x64/publish .
+COPY --from=build /src/pragmatic.programmer.tips.api/bin/release/net7.0/*/publish .
 
 # start sele at startup
 ENTRYPOINT ["dotnet", "pragmatic.programmer.tips.api.dll"]

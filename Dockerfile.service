@@ -14,7 +14,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 
 # create and copy build files into pragmatic.programmer.tips.api folder
 WORKDIR /bin/pragmatic.programmer.tips
-COPY --from=build /src/pragmatic.programmer.tips.service/bin/release/net7.0/linux-x64/publish .
+COPY --from=build /src/pragmatic.programmer.tips.service/bin/release/net7.0/*/publish .
 
 # copy the crontab file
 COPY --from=build /src/pragmatic.programmer.tips.service.crontab .
