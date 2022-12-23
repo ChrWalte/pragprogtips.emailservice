@@ -14,11 +14,10 @@ COPY ./pragmatic.programmer.tips.client/ ./
 
 # run build script
 RUN npm run build --configuration=production
-WORKDIR /source/dist/pragmatic-programmer-tips
 
 # final stage
 FROM nginx:alpine AS final
 
 # copy the built files into the nginx directory
 WORKDIR /usr/share/nginx/html
-COPY --from=build /source/dist/pragmatic-programmer-tips/ ./
+COPY --from=build /source/dist/pragmatic.programmer.tips/ ./
