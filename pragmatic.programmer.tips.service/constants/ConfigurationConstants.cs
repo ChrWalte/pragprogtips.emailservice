@@ -1,14 +1,13 @@
-﻿namespace pragmatic.programmer.tips.service.constants
+﻿namespace pragmatic.programmer.tips.service.constants;
+
+/// <summary>
+///     Constants file containing most Configuration keys.
+/// </summary>
+internal static class ConfigurationConstants
 {
-    /// <summary>
-    /// Constants file containing most Configuration keys.
-    /// </summary>
-    internal static class ConfigurationConstants
-    {
-        public const string EnvironmentEnvironmentVariableName = "ENVIRONMENT";
-        public const string NoEnvironmentFound = "NO_ENVIRONMENT_FOUND";
-        public const string LoggerConfigurationKey = "loggerConfiguration:LogLevel";
-        public const string EmailServerConfigurationKey = "emailServerConfiguration";
-        public const string EmailMessageConfigurationKey = "emailMessageConfiguration";
-    }
+    public const string EnvironmentEnvironmentVariableName = "ENVIRONMENT";
+    public const string NoEnvironmentFound = "NO_ENVIRONMENT_FOUND";
+    public const string LoggerConfigurationKey = "loggerConfiguration:LogLevel";
+    public const string EmailServerConfigurationKey = "emailServerConfiguration";
+    public const string EmailMessageConfigurationKey = "emailMessageConfiguration";
 }

@@ -1,103 +1,104 @@
-﻿using pragmatic.programmer.tips.core.data.interfaces;
+﻿using System.Security.Cryptography;
+using pragmatic.programmer.tips.core.data.interfaces;
 using pragmatic.programmer.tips.core.models;
 using pragmatic.programmer.tips.core.services.interfaces;
-using System.Security.Cryptography;
 
-namespace pragmatic.programmer.tips.core.services
+namespace pragmatic.programmer.tips.core.services;
+
+/// <summary>
+///     service used to perform logic on/with Pragmatic Programmer Tips.
+/// </summary>
+public class TipService : ITipService
 {
-    /// <summary>
-    /// service used to perform logic on/with Pragmatic Programmer Tips.
-    /// </summary>
-    public class TipService : ITipService
+    private readonly Logger _logger;
+    private readonly IPragmaticProgrammerTipsRepository _tipsRepository;
+
+    public TipService(IPragmaticProgrammerTipsRepository tipsRepository, Logger logger)
     {
-        private readonly IPragmaticProgrammerTipsRepository _tipsRepository;
-        private readonly Logger _logger;
+        _tipsRepository = tipsRepository;
+        _logger = logger;
+    }
 
-        public TipService(IPragmaticProgrammerTipsRepository tipsRepository, Logger logger)
+    /// <summary>
+    ///     gets a random Pragmatic Programmer Tip from the data repository using a random number.
+    /// </summary>
+    /// <returns>a random Pragmatic Programmer Tip</returns>
+    public async Task<Tip> GetRandomTipAsync()
+    {
+        await _logger.LogDebug(Constants.EnteredGetRandomTip);
+        var tips = (await GetAllTipsAsync()).ToList();
+        await _logger.Log($"got {tips.Count} tips using GetAllTipsAsync()");
+
+        var randomNumber = RandomNumberGenerator.GetInt32(tips.Count);
+        await _logger.Log($"got {randomNumber} from RandomNumberGenerator.GetInt32(tips.Count)");
+
+        await _logger.LogDebug(Constants.ExitedGetRandomTip);
+        return tips[randomNumber];
+    }
+
+    /// <summary>
+    ///     gets a random Pragmatic Programmer Tip from the data repository using a random number.
+    ///     this method will also save the random tip and will not select it again until the entire list has been selected.
+    /// </summary>
+    /// <returns>a random Pragmatic Programmer Tip</returns>
+    public async Task<Tip> GetRandomTipWithRemembranceAsync()
+    {
+        await _logger.LogDebug(Constants.EnteredGetRandomTipWithRemembrance);
+
+        // get all the tips from the data source
+        var tips = (await GetAllTipsAsync()).ToList();
+        await _logger.Log($"got {tips.Count} tips using GetAllTipsAsync()");
+
+        // get all previously selected tips from data source
+        var tipsIdentifiersAlreadyRandomlySelected = (await _tipsRepository.ReadTipIdentifiersFromTextFile()).ToList();
+        await _logger.Log(
+            $"got {tipsIdentifiersAlreadyRandomlySelected.Count} tips using _tipsRepository.ReadTipIdentifiersFromTextFile()");
+
+        // if all tips have been previously selected, reset data source
+        if (tipsIdentifiersAlreadyRandomlySelected.Count >= tips.Count)
         {
-            _tipsRepository = tipsRepository;
-            _logger = logger;
+            await _tipsRepository.DeleteTipIdentifierTextFile();
+            tipsIdentifiersAlreadyRandomlySelected.Clear();
+            await _logger.LogDebug(Constants.ResetTipIdentifierRemembranceFile);
+        }
+        else // remove previously selected tips from random tip pool
+        {
+            var tipsToRemove = tips.Where(tip => tipsIdentifiersAlreadyRandomlySelected.Contains(tip.Number)).ToList();
+            foreach (var tip in tipsToRemove)
+                tips.Remove(tip);
         }
 
-        /// <summary>
-        /// gets a random Pragmatic Programmer Tip from the data repository using a random number.
-        /// </summary>
-        /// <returns>a random Pragmatic Programmer Tip</returns>
-        public async Task<Tip> GetRandomTipAsync()
-        {
-            await _logger.LogDebug(Constants.EnteredGetRandomTip);
-            var tips = (await GetAllTipsAsync()).ToList();
-            await _logger.Log($"got {tips.Count} tips using GetAllTipsAsync()");
+        await _logger.Log($"removed {tipsIdentifiersAlreadyRandomlySelected.Count} tips from tip pool");
 
-            var randomNumber = RandomNumberGenerator.GetInt32(tips.Count);
-            await _logger.Log($"got {randomNumber} from RandomNumberGenerator.GetInt32(tips.Count)");
+        // get random number using crypto!
+        var randomNumber = RandomNumberGenerator.GetInt32(tips.Count);
+        await _logger.Log($"got {randomNumber} from RandomNumberGenerator.GetInt32(tips.Count)");
 
-            await _logger.LogDebug(Constants.ExitedGetRandomTip);
-            return tips[randomNumber];
-        }
+        // get random tip
+        var randomTip = tips[randomNumber];
+        await _logger.LogDebug(Constants.GotRandomTipUsingRandomNumber);
 
-        /// <summary>
-        /// gets a random Pragmatic Programmer Tip from the data repository using a random number.
-        /// this method will also save the random tip and will not select it again until the entire list has been selected.
-        /// </summary>
-        /// <returns>a random Pragmatic Programmer Tip</returns>
-        public async Task<Tip> GetRandomTipWithRemembranceAsync()
-        {
-            await _logger.LogDebug(Constants.EnteredGetRandomTipWithRemembrance);
+        // store selected random tip for next time
+        tipsIdentifiersAlreadyRandomlySelected.Add(randomTip.Number);
+        await _tipsRepository.WriteTipIdentifiersToTextFile(tipsIdentifiersAlreadyRandomlySelected);
+        await _logger.LogDebug(Constants.StoredTipIdentifierInRemembranceFile);
 
-            // get all the tips from the data source
-            var tips = (await GetAllTipsAsync()).ToList();
-            await _logger.Log($"got {tips.Count} tips using GetAllTipsAsync()");
+        await _logger.LogDebug(Constants.ExitedGetRandomTipWithRemembrance);
+        return randomTip;
+    }
 
-            // get all previously selected tips from data source
-            var tipsIdentifiersAlreadyRandomlySelected = (await _tipsRepository.ReadTipIdentifiersFromTextFile()).ToList();
-            await _logger.Log($"got {tipsIdentifiersAlreadyRandomlySelected.Count} tips using _tipsRepository.ReadTipIdentifiersFromTextFile()");
+    /// <summary>
+    ///     gets all Pragmatic Programmer Tips from the data repository.
+    /// </summary>
+    /// <returns>a list of Pragmatic Programmer Tips</returns>
+    public async Task<IEnumerable<Tip>> GetAllTipsAsync()
+    {
+        await _logger.LogDebug(Constants.EnteredGetAllTips);
 
-            // if all tips have been previously selected, reset data source
-            if (tipsIdentifiersAlreadyRandomlySelected.Count >= tips.Count)
-            {
-                await _tipsRepository.DeleteTipIdentifierTextFile();
-                tipsIdentifiersAlreadyRandomlySelected.Clear();
-                await _logger.LogDebug(Constants.ResetTipIdentifierRemembranceFile);
-            }
-            else // remove previously selected tips from random tip pool
-            {
-                var tipsToRemove = tips.Where(tip => tipsIdentifiersAlreadyRandomlySelected.Contains(tip.Number)).ToList();
-                foreach (var tip in tipsToRemove)
-                    tips.Remove(tip);
-            }
-            await _logger.Log($"removed {tipsIdentifiersAlreadyRandomlySelected.Count} tips from tip pool");
+        var tips = (await _tipsRepository.ReadFromRawTipsJsonFile()).ToList();
+        await _logger.Log($"read {tips.Count} tips using _tipsRepository.ReadFromRawTipsTextFile()");
 
-            // get random number using crypto!
-            var randomNumber = RandomNumberGenerator.GetInt32(tips.Count);
-            await _logger.Log($"got {randomNumber} from RandomNumberGenerator.GetInt32(tips.Count)");
-
-            // get random tip
-            var randomTip = tips[randomNumber];
-            await _logger.LogDebug(Constants.GotRandomTipUsingRandomNumber);
-
-            // store selected random tip for next time
-            tipsIdentifiersAlreadyRandomlySelected.Add(randomTip.Number);
-            await _tipsRepository.WriteTipIdentifiersToTextFile(tipsIdentifiersAlreadyRandomlySelected);
-            await _logger.LogDebug(Constants.StoredTipIdentifierInRemembranceFile);
-
-            await _logger.LogDebug(Constants.ExitedGetRandomTipWithRemembrance);
-            return randomTip;
-        }
-
-        /// <summary>
-        /// gets all Pragmatic Programmer Tips from the data repository.
-        /// </summary>
-        /// <returns>a list of Pragmatic Programmer Tips</returns>
-        public async Task<IEnumerable<Tip>> GetAllTipsAsync()
-        {
-            await _logger.LogDebug(Constants.EnteredGetAllTips);
-
-            var tips = (await _tipsRepository.ReadFromRawTipsJsonFile()).ToList();
-            await _logger.Log($"read {tips.Count} tips using _tipsRepository.ReadFromRawTipsTextFile()");
-
-            await _logger.LogDebug(Constants.ExitedGetAllTips);
-            return tips;
-        }
+        await _logger.LogDebug(Constants.ExitedGetAllTips);
+        return tips;
     }
 }

@@ -15,16 +15,16 @@
         </div>
 
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="name"
-            >Email <span class="text-danger">*</span></span
+          <span class="input-group-text" id="name">
+            Email <span class="text-danger">*</span>
+          </span
           >
           <input
             type="email"
             formControlName="email"
             class="form-control"
             required
-            placeholder="christopher.walters@chrwalte.com"
-          />
+            placeholder="christopher.walters@chrwalte.com"/>
         </div>
 
         <div class="text-center">
@@ -32,16 +32,14 @@
             type="button"
             class="btn btn-primary"
             [disabled]="unsubscribeForm.invalid"
-            (click)="unsubscribeHandler()"
-          >
+            (click)="unsubscribeHandler()">
             Unsubscribe
           </button>
           <button
             type="button"
             class="btn btn-secondary"
             [disabled]="!unsubscribeForm.dirty"
-            (click)="clearHandler()"
-          >
+            (click)="clearHandler()">
             Clear
           </button>
         </div>

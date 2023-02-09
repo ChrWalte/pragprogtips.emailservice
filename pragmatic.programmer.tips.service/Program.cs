@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
-using pragmatic.programmer.tips.service.constants;
 using pragmatic.programmer.tips.core;
 using pragmatic.programmer.tips.core.data;
 using pragmatic.programmer.tips.core.data.interfaces;
 using pragmatic.programmer.tips.core.models;
 using pragmatic.programmer.tips.core.services;
 using pragmatic.programmer.tips.core.services.interfaces;
+using pragmatic.programmer.tips.service.constants;
 
 // get path of executable and make path to logs
 var rootDirectory = Path.GetDirectoryName(Environment.GetCommandLineArgs().FirstOrDefault());
@@ -21,14 +21,15 @@ await logger.LogDebug(LogMessageConstants.InitializedLogger);
 try
 {
     // get currentEnvironment from EnvironmentVariable
-    var currentEnvironment = Environment.GetEnvironmentVariable(ConfigurationConstants.EnvironmentEnvironmentVariableName)
-                             ?? ConfigurationConstants.NoEnvironmentFound;
+    var currentEnvironment =
+        Environment.GetEnvironmentVariable(ConfigurationConstants.EnvironmentEnvironmentVariableName)
+        ?? ConfigurationConstants.NoEnvironmentFound;
     await logger.Log($"got {currentEnvironment} from Environment.GetEnvironmentVariable(...)");
 
     // initialize Configuration
     var configurationBuilder = new ConfigurationBuilder()
-        .AddJsonFile("configuration.json", optional: false, reloadOnChange: true)
-        .AddJsonFile($"configuration.{currentEnvironment}.json", optional: true, reloadOnChange: true);
+        .AddJsonFile("configuration.json", false, true)
+        .AddJsonFile($"configuration.{currentEnvironment}.json", true, true);
     IConfiguration configuration = configurationBuilder.Build();
     await logger.LogDebug(LogMessageConstants.InitializedConfiguration);
 
@@ -47,8 +48,10 @@ try
         }
     }
     else
+    {
         await logger.LogWarning(
             $"failed to read Logger.LogLevel from configuration[{ConfigurationConstants.LoggerConfigurationKey}], set to default Logger.LogLevel.Debug");
+    }
 
     // initialize PragmaticProgrammerTipsRepository
     IPragmaticProgrammerTipsRepository tipRepository = new PragmaticProgrammerTipsRepository();
@@ -80,7 +83,8 @@ try
 
     // initialize EmailService
     var emailConfiguration = configuration.GetSection(ConfigurationConstants.EmailServerConfigurationKey)
-        .Get<EmailServerConfiguration>();
+                                 .Get<EmailServerConfiguration>() ??
+                             throw new Exception("unable to find EmailServerConfiguration in configuration");
     IEmailService emailService = new EmailService(emailConfiguration);
     await logger.LogDebug(LogMessageConstants.InitializedEmailService);
 
@@ -97,8 +101,9 @@ try
         theRandomTip.Title,
         theRandomTip.Description,
         theRandomTip.Page);
-    var formattedEmailSubject = string.Format(  // throw if SubjectTemplate not found in configuration
-        emailMessageConfiguration.SubjectTemplate ?? throw new NullReferenceException(nameof(emailMessageConfiguration.SubjectTemplate)),
+    var formattedEmailSubject = string.Format( // throw if SubjectTemplate not found in configuration
+        emailMessageConfiguration.SubjectTemplate ??
+        throw new NullReferenceException(nameof(emailMessageConfiguration.SubjectTemplate)),
         theRandomTip.Number);
 
     // throw if emails not found in configuration
