@@ -22,21 +22,20 @@
             type="text"
             formControlName="name"
             class="form-control"
-            placeholder="Christopher Walters"
-          />
+            placeholder="Christopher Walters"/>
         </div>
 
         <div class="input-group input-group-sm">
-          <span class="input-group-text" id="name"
-            >Email <span class="text-danger">*</span></span
+          <span class="input-group-text" id="name">
+            Email <span class="text-danger">*</span>
+          </span
           >
           <input
             type="email"
             formControlName="email"
             class="form-control"
             required
-            placeholder="christopher.walters@chrwalte.com"
-          />
+            placeholder="christopher.walters@chrwalte.com"/>
         </div>
 
         <div class="text-center">
@@ -44,16 +43,14 @@
             type="button"
             class="btn btn-primary"
             [disabled]="subscribeForm.invalid"
-            (click)="subscribeHandler()"
-          >
+            (click)="subscribeHandler()">
             Subscribe
           </button>
           <button
             type="button"
             class="btn btn-secondary"
             [disabled]="!subscribeForm.dirty"
-            (click)="clearHandler()"
-          >
+            (click)="clearHandler()">
             Clear
           </button>
         </div>

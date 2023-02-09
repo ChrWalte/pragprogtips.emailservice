@@ -1,10 +1,10 @@
+using System.Reflection;
 using Microsoft.OpenApi.Models;
 using pragmatic.programmer.tips.core;
 using pragmatic.programmer.tips.core.data;
 using pragmatic.programmer.tips.core.data.interfaces;
 using pragmatic.programmer.tips.core.services;
 using pragmatic.programmer.tips.core.services.interfaces;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +33,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "Pragmatic Programmer Tips Email Service Mailing List API",
-        Description = "api to subscribe/unsubscribe from the pragmatic.programmer.tips email service.",
+        Description = "api to subscribe/unsubscribe from the pragmatic.programmer.tips email service."
         // TermsOfService = new Uri("https://example.com/terms"),
         // Contact = new OpenApiContact
         // {
